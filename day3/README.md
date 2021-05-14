@@ -25,3 +25,8 @@ package hello;
 
 
 ## cmd 용어
+mkdir / rmdir
+dir [/s  등... ]
+cd
+move
+
