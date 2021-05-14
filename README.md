@@ -3,9 +3,6 @@
 
 
 ## 교육과정
-1. [Start](00-Start/README.md)
-2. Java
-3. Database & Mobile
-4. Web Programming
-5. Java Web Server Programming
-6. Full Stack Programming
+1. day1
+2. day2
+3. day3 (cmd에서 javac, java)
