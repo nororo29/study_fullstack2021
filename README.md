@@ -3,6 +3,6 @@
 
 
 ## 교육과정
-1. day1 (github README 사용법 - md
+1. day1 (github README 사용법 - md)
 2. day2
 3. day3 (cmd에서 javac, java)
