@@ -3,7 +3,7 @@
 
 
 ## 교육과정
-1. [day1 (github README 사용법 - md)]()
-2. [day2]()
+1. day1 (github README 사용법 - md)
+2. day2
 3. [day3 (cmd에서 java실행, package)](day3/README.md)
-4. [day4]()
+4. day4
