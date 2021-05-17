@@ -1,4 +1,5 @@
-# DAY3 (20210514)
+# DAY3
+2021/05/14
 
 ## cmd창에서 java 파일 컴파일, 실행
 
@@ -18,10 +19,16 @@
 
 
 ## package 사용하기
+패키지는 비슷한 성격의 자바 클래스들을 모아 넣는 자바의 디렉토리이다.
 ```java
 package hello;
+package java.basic.ch02;
+// Java_basic(java project 이름) > src > java > basic > ch02 > .java파일
+// Java_basic(java project 이름) > bin > java > basic > ch02 > .class파일
 ```
-
+위 예제를 보면 패키지명이 java.basic.ch02 으로 되어 있다.  
+이렇게 도트(.)를 이용하여 하위 패키지를 계속해서 만들어 나갈 수 있다.   
+여기서 java.basic.ch02은 java.basic패키지의 서브패키지라고 말한다.
 
 
 ## cmd 용어
