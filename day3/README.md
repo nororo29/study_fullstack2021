@@ -30,10 +30,25 @@ package java.basic.ch02;
 이렇게 도트(.)를 이용하여 하위 패키지를 계속해서 만들어 나갈 수 있다.   
 여기서 java.basic.ch02은 java.basic패키지의 서브패키지라고 말한다.
 
+- 클래스의 분류가 용이하다. (비슷한 것 끼리 묶는다)
+- 패키지가 다르다면 동일한 클래스명을 사용할 수 있다.
+- 소스파일(*.java)에 class파일 1개만,,, 여러개 효과적이지 않다...
+- 하나의 패키지(package)에 main class파일 1개만,,,
+
+  
+cmd에서 package
+```
+> javac -d . HelloJava.java
+// 컴파일 할때 디렉토리(package이름) 밑으로 class파일만들기
+
+> java -cp . hello.HelloJava
+// cp(classpath)를 .(현재디렉)으로 강제로 지정하고 hello package 밑에 HelloJava 실행
+```
+
 
 ## cmd 용어
-mkdir / rmdir
-dir [/s  등... ]
-cd
-move
+mkdir / rmdir  
+dir [/s  등... ]  
+cd  
+move  
 
