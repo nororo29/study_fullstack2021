@@ -160,3 +160,58 @@ public class ScannerTest {
 }
 
 ```
+
+## 조건문
+if  
+```java
+package chapter4;
+
+public class IfExample {
+
+	public static void main(String[] args) {
+		
+		int age1 = 10;
+		int age2 = 15;
+		
+		if (age1 >= 8) {
+			System.out.println("8살 이상");
+		} else {
+			System.out.println("8살 이하");
+		}
+		
+		//복합조건
+		if ((age1 >= 8) && (age2 > 10)) {
+			System.out.println("true");
+		} else {
+			System.out.println("false");			
+		}
+	}
+
+}
+
+```
+
+#### if, Scanner 예제
+```java
+package chapter4;
+
+import java.util.Scanner;
+
+public class InputIfExam {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		int num = sc.nextInt();
+		
+		if (num > 0) {
+			System.out.println(num);
+		} else {
+			System.out.println("양수를 입력하세요!");
+		}
+	}
+
+}
+
+```
