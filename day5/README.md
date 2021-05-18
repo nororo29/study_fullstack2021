@@ -119,7 +119,8 @@ public class ScannerTest {
 		//Scanner 클래스, 매개변수(System.in) - import java.util.Scanner
 		//단축키 Ctrl + Shift + O
 		Scanner scanner = new Scanner(System.in);
-		//java.lang 패키지 - import 안해도 됨
+		
+		//String - java.lang 패키지 - import 안해도 됨
 		String s = new String();  
 		
 		System.out.println("이름: ");
@@ -272,7 +273,7 @@ public class InputIfExam {
 				break;
 		}
 		System.out.println(ranking + "등 메달의 색깔은 " + medalColor + "입니다.");
-		
+		//1등 메달의 색깔은 A입니다. (위에서 break없기 때문)
 	}
 
 }
