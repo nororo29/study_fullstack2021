@@ -135,3 +135,25 @@ public class ScannerTest {
 }
 
 ```
+#### scanner 예제1
+```java
+package chapter3;
+
+import java.util.Scanner;
+
+public class ScannerTest {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in); 
+		
+		int a = scanner.nextInt();
+		int b = scanner.nextInt();
+		
+		System.out.println("sum : " + (a + b));
+		System.out.println("avg : " + ((a + b) / 2));
+		
+	}
+
+}
+
+```
