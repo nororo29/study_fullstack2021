@@ -280,6 +280,36 @@ public class InputIfExam {
 
 ```
 
+## 반복문
+- while / for , continue / break
+
+```java
+package chapter4;
+
+import java.util.Scanner;
+
+public class InputIfExam {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		while (true) {
+			System.out.print("단을 입력해주세요 : ");
+			int dan = sc.nextInt();
+			
+			if (dan == -1)
+				break;
+			
+			for (int i = 0; i < 10; i++)
+				System.out.println(dan + "*" + i + "=" + (dan * i));
+			
+		}
+		
+	}
+
+}
+```
 
 
 ## eclipse 단축어
