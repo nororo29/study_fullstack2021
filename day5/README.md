@@ -104,7 +104,9 @@ public class StringConcat {
 }
 ```
 
-## System.in (Scanner)
+## System.in (Scanner)  
+
+Ctrl + Shift + O : import 단축키  
 
 ```java
 package chapter3;
@@ -115,6 +117,7 @@ public class ScannerTest {
 
 	public static void main(String[] args) {
 		//Scanner 클래스, 매개변수(System.in) - import java.util.Scanner
+		//단축키 Ctrl + Shift + O
 		Scanner scanner = new Scanner(System.in);
 		//java.lang 패키지 - import 안해도 됨
 		String s = new String();  
