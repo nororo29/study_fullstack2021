@@ -81,6 +81,7 @@ public class ShiftOperation {
 ```
 
 ## String 연결
+
 ```java
 public class StringConcat {
 
@@ -103,8 +104,8 @@ public class StringConcat {
 }
 ```
 
-## System.in
-Scanner
+## System.in (Scanner)
+
 ```java
 package chapter3;
 
