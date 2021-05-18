@@ -1,5 +1,5 @@
 ## 비트 연산자
-& , | , ^ , ~
+#### & , | , ^ , ~
 
 ```java
 package chapter3;
@@ -35,7 +35,7 @@ public class BitOperation {
 ```
 
 ## shift 연산자
-<< , >> , >>>
+#### << , >> , >>>
 
 ```java
 package chapter3;
@@ -106,7 +106,7 @@ public class StringConcat {
 
 ## System.in (Scanner)  
 
-Ctrl + Shift + O : import 단축키  
+- Ctrl + Shift + O : import 단축키  
 
 ```java
 package chapter3;
@@ -210,6 +210,34 @@ public class InputIfExam {
 		} else {
 			System.out.println("양수를 입력하세요!");
 		}
+	}
+
+}
+
+```
+
+#### if, else if, else 예제
+```java
+package chapter4;
+
+import java.util.Scanner;
+
+public class InputIfExam {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		int a = sc.nextInt();
+
+		if (a > 0) {
+			System.out.println("양수");
+		} else if (a == 0) {
+			System.out.println("0입니다.");
+		} else {
+			System.out.println("음수");
+		}
+		
 	}
 
 }
