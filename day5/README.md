@@ -23,7 +23,7 @@ public class BitOperation {
 		// boolean t = (num1 & num2) && (num1 ^ num2)
 		// &&는 논리연산자, 값끼리 논리연산 안됨
 		
-		boolean t1 = (num1 > num2) & (num1 < num2);		// true & flase : 비트연산 = flase
+		boolean t1 = (num1 > num2) & (num1 < num2);  // true & flase = false (비트연산)
 		boolean t2 = (num1 > num2) | (num1 < num2);
 		boolean t3 = (num1 > num2) ^ (num1 < num2);
 		System.out.println(t1);
@@ -288,3 +288,5 @@ public class InputIfExam {
 - Ctrl + / : 한줄 또는 선택영역 주석처리 / 제거
 - Alt + UP,DOWN : 현재 줄 위치 이동
 - Ctrl + Alt + up/down : 한줄 duplicate
+- Ctrl + Shift + O : import 단축키  
+
