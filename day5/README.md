@@ -243,3 +243,12 @@ public class InputIfExam {
 }
 
 ```
+
+
+
+## eclipse 단축어
+- Alt + Shift + R : 변수명 일괄 변경
+- Ctrl + D : 한줄삭제
+- Ctrl + / : 한줄 또는 선택영역 주석처리 / 제거
+- Alt + UP,DOWN : 현재 줄 위치 이동
+- Ctrl + Alt + up/down : 한줄 duplicate
