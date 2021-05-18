@@ -79,3 +79,58 @@ public class ShiftOperation {
 }
 
 ```
+
+#### String 연결
+```java
+public class StringConcat {
+
+	public static void main(String[] args) {
+		//boolean t = true + false;   //error
+
+		//new String()
+		String s = "";  //스트링 리터럴
+		
+		System.out.println("유니코드 = " + "\uADAC");          //유니코드 = 궬
+		System.out.println("유니코드 escape = " + "\\uADAC");  //유니코드 escape = \uADAC
+		
+		System.out.println("정수 + 정수 = " + (5 + 10));       //정수 + 정수 = 15
+		System.out.println("정수 + 정수 = " + 5 + 10);         //정수 + 정수 = 510
+		System.out.println("정수 + 실수 = " + 5 + 10.9);       //정수 + 실수 = 510.9
+		System.out.println(5 + 10.9 + " = 정수 + 실수");       //15.9 = 정수 + 실수
+
+	}
+
+}
+```
+
+#### System.in
+Scanner
+```java
+package chapter3;
+
+import java.util.Scanner;
+
+public class ScannerTest {
+
+	public static void main(String[] args) {
+		//Scanner 클래스, 매개변수(System.in) - import java.util.Scanner
+		Scanner scanner = new Scanner(System.in);
+		//java.lang 패키지 - import 안해도 됨
+		String s = new String();  
+		
+		System.out.println("이름: ");
+		String name = scanner.nextLine();    //입력
+		System.out.println("직업: ");
+		String job = scanner.nextLine();     //입력
+		System.out.println("사번: ");
+		int num = scanner.nextInt();         //입력
+		
+		System.out.println(name);
+		System.out.println(job);
+		System.out.println(num);
+		
+	}
+
+}
+
+```
