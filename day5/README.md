@@ -80,7 +80,7 @@ public class ShiftOperation {
 
 ```
 
-#### String 연결
+## String 연결
 ```java
 public class StringConcat {
 
@@ -103,7 +103,7 @@ public class StringConcat {
 }
 ```
 
-#### System.in
+## System.in
 Scanner
 ```java
 package chapter3;
