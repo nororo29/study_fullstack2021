@@ -4,12 +4,12 @@
 ## cmd창에서 java 파일 컴파일, 실행
 
 - java파일 컴파일 후 class파일 만듦
-```
+```bash
 >javac HelloJava.java
 ```
 
 - 실행
-```
+```bash
 >java HelloJava
 ```
 1. Programfiles\java 디렉토리 밑에서 먼저 class파일 있는지 확인
@@ -37,7 +37,7 @@ package java.basic.ch02;
 
   
 cmd에서 package
-```
+```bash
 > javac -d . HelloJava.java
 // 컴파일 할때 디렉토리(package이름) 밑으로 class파일만들기
 
