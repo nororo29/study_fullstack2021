@@ -4,6 +4,6 @@
 
 ## 교육과정
 1. day1 (github README 사용법 - md)
-2. day2
+2. [day2](day2/README.md)
 3. [day3 (cmd에서 java실행, package)](day3/README.md)
 4. day4
