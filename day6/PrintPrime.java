@@ -1,14 +1,14 @@
 import java.util.Scanner;
 
-public class StringExam2 {
+public class PrintPrime {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//¼ıÀÚ n ÀÔ·Â¹Ş¾Æ 1~n±îÁö ¼Ò¼ö Ãâ·Â
+		//ìˆ«ì n ì…ë ¥ë°›ì•„ 1~nê¹Œì§€ ì†Œìˆ˜ ì¶œë ¥
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("¼ıÀÚ ÀÔ·Â : ");
+		System.out.print("ìˆ«ì ì…ë ¥ : ");
 		int n = sc.nextInt();
 		
 		for (int i = 0; i <= n; i++) {
