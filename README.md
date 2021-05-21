@@ -11,4 +11,5 @@
 - [day3](day3/README.md) (cmd에서 java실행, package)
 - day4
 - [day5](day5/README.md) (비트연산자, shift연산자, Scanner)
-- [day6](day6/README.md) (String메소드,)
+- [day6](day6/README.md) (String메소드, 배열)
+- [day7](day7/README.md) ()
