@@ -319,4 +319,6 @@ public class InputIfExam {
 - Alt + UP,DOWN : 현재 줄 위치 이동
 - Ctrl + Alt + up/down : 한줄 duplicate
 - Ctrl + Shift + O : import 단축키  
+- Ctrl + Shift + F : 정리
+- F2 : 오류...설명창
 
