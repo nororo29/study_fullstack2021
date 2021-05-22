@@ -17,11 +17,11 @@ public class Practice5 {
 		}
 		
 		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10 - i; j++) {
-				if (intArr[j] < intArr[j]) {
-					temp = intArr[i];
-					intArr[i] = intArr[j];
-					intArr[j] = temp;
+			for (int j = 0; j < 9 - i; j++) {
+				if (intArr[j] < intArr[j + 1]) {
+					temp = intArr[j];
+					intArr[j] = intArr[j + 1];
+					intArr[j + 1] = temp;
 				}
 			}
 		}
