@@ -1,6 +1,5 @@
 package homework;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Practice5 {
@@ -25,8 +24,9 @@ public class Practice5 {
 				}
 			}
 		}
-		
-		System.out.println(Arrays.toString(intArr));
+				
+		for (int i : intArr)
+			System.out.print(i + " ");
 	}
 
 }
