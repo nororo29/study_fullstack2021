@@ -5,7 +5,7 @@
 ## 교육과정
 #### Introduce
 - day1 (github README 사용법 - md)
-- [day2](day2/README.md)  
+- [day2](day2/README.md) (운영체제)
 
 #### Java
 - [day3](day3) (cmd에서 java실행, package)
