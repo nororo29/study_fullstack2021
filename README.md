@@ -12,5 +12,5 @@
 - day4
 - [day5](day5/README.md) (비트연산자, shift연산자, Scanner)
 - [day6](day6/README.md) (String메소드, 배열)
-- [day7](day7/README.md) (class)
+- [day7](day7) (class)
 - [day8](https://github.com/nororo29/study_fullstack2021/tree/main/day8) ()
