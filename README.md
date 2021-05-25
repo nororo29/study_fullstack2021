@@ -14,3 +14,4 @@
 - [day6](day6) (String메소드, 배열)
 - [day7](day7) (class)
 - [day8](day8) (배열)
+- [day9](day9) (클래스-메소드)
