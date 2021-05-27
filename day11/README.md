@@ -13,8 +13,8 @@
 
 
 실습
-- Calculator <----- Computer
-- Parent <----- Child
-- Employee <----- Engineer
-- Vehicle <----- Bus, Taxi
+- [Calculator](Calculator.java) <----- [Computer](Computer.java)
+- [Parent](Parent.java) <----- [Child](Child.java)
+- [Employee <----- Engineer](EmployeeTest.java)
+- [Vehicle <----- Bus, Taxi](DriverTest.java)
 
