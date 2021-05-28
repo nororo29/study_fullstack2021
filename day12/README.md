@@ -13,8 +13,12 @@
 - System 정적메소드 
   - exit()
   - nanoTime() / currentTimeMillis()
-  - getProperty()
+  - getProperty() / getProperties()
+  - getenv()
 - Garbage Collection `System.gc()`
+- String
+  - Builder pattern
+  - StringBuilder / StringBuffer
 
 ---
 #### 복사
