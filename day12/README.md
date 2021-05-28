@@ -19,6 +19,8 @@
 - String
   - Builder pattern
   - StringBuilder / StringBuffer
+  - indexOf() / substring() / startsWith() / trim() / split()
+  - StringTokenizer : hasMoreTokens() / nextToken()
 
 ---
 #### 복사
