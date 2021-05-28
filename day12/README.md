@@ -10,7 +10,10 @@
   - equals()
   - clone()
 - 내부클래스
-- System 정적메소드 `System.exit()` `System.out.println()`
+- System 정적메소드 
+  - exit()
+  - nanoTime() / currentTimeMillis()
+  - getProperty()
 - Garbage Collection `System.gc()`
 
 ---
