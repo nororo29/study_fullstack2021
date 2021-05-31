@@ -13,6 +13,8 @@
   - Set : HashSet, TreeSet
   - Map : HashTable, HashMap, TreeMap, Properties
 - 예외처리
+- static
+- Inner class
 
 ---
 - List(순서 O) : ArrayList(stack, queue), Vector(동기화), LinkedList
