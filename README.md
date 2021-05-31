@@ -18,3 +18,4 @@
 - [day10](day10) (this, 정보은닉, 상속)
 - [day11](day11) (다형성, 추상클래스, 인터페이스)
 - [day12](day12) (인터페이스, Object/String/Wrapper 클래스)
+- [day13](day13) (배열, 컬렉션, static)
