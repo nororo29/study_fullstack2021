@@ -34,7 +34,7 @@
 
 ---
 #### 복사
-- 배열복사 
+- 객체배열복사 
   - `System.arrayCopy()` 주소값복사(얕은복사)
   - `bookArray2[i].setBookName(bookArray1[i].getBookName());`    
      변수값 복사, 주소값 다름(깊은복사)
