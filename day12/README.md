@@ -40,15 +40,61 @@
 
 - 객체배열복사
   - `System.arrayCopy()` 배열의 주소는 다르지만 **배열 속 객체의 주소값은 같음(얕은복사)**
-  
-  ```java
-  		// 객체배열
+  - `bookArray2[i].setBookName(bookArray1[i].getBookName());`    
+     변수값 복사, 주소값 다름(깊은복사)
+
+- 객체복사
+  - `Circle circle2 = circle`  =연산, 주소값복사(얕은복사)
+  - `clone()`  멤버변수값 복사, 주소값 다름(깊은복사)
+
+
+#### 얕은복사
+```java
+package java_basic_day16;
+
+class Student2 {
+	String name;
+	int id;
+	
+	public Student2() {}
+
+	public Student2(String name, int id) {
+		this.name = name;
+		this.id = id;
+	}
+}
+
+public class CopyTest {
+
+	public static void main(String[] args) {
+
+		// 얕은복사 (주소값 복사)
+		
+		// 배열
+		int[] intArr1 = {1,2,3,4,5};
+		int[] intArr2 = new int[5];
+		
+		intArr2 = intArr1;
+		
+		System.out.println(intArr1);  // [I@41a4555e
+		System.out.println(intArr2);  // [I@41a4555e
+		
+		// 객체
+		Student2 s1 = new Student2("lucy", 1);
+		Student2 s2 = new Student2();
+		
+		s2 = s1;
+		
+		System.out.println(s1 + " " + s1.name + s1.id); // java_basic_day16.Student2@39ed3c8d lucy1
+		System.out.println(s2 + " " + s2.name + s2.id); // java_basic_day16.Student2@39ed3c8d lucy1
+		
+		// 객체배열
 		Student2[] sArr1 = {new Student2("lucy", 1), new Student2("gina", 2), new Student2("tom", 3)};
 		Student2[] sArr2 = new Student2[3];
 		/*
 		sArr2 = sArr1;
-		System.out.println(sArr1 + " " + sArr1[0].name);
-		System.out.println(sArr2 + " " + sArr2[0].name);
+		System.out.println(sArr1 + " " + sArr1[0].name); // [Ljava_basic_day16.Student2;@71dac704 lucy
+		System.out.println(sArr2 + " " + sArr2[0].name); // [Ljava_basic_day16.Student2;@71dac704 lucy
 		
 		sArr1[0].name = "ddd";
 		System.out.println(sArr1 + " " + sArr1[0].name);
@@ -68,14 +114,12 @@
 		sArr1[0].name = "ddd";
 		System.out.println(sArr1[0].name); // ddd
 		System.out.println(sArr2[0].name); // ddd
-    
-    ```
-    
-  - `bookArray2[i].setBookName(bookArray1[i].getBookName());`    
-     변수값 복사, 주소값 다름(깊은복사)
+		
+		
+	}
 
-- 객체복사
-  - `Circle circle2 = circle`  =연산, 주소값복사(얕은복사)
-  - `clone()`  멤버변수값 복사, 주소값 다름(깊은복사)
+}
+
+```
 
 
