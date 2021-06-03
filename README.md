@@ -20,5 +20,5 @@
 - [day12](day12) (인터페이스, Object/String/Wrapper 클래스)
 - [day13](day13) (배열, 컬렉션, static)
 - [day14](day14) (내부클래스)
-- [day15](day15)
+- [day15](day15) (arraycopy())
 - [day16](day16)
