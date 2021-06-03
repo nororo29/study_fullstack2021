@@ -39,7 +39,8 @@
   - `System.arraycopy(nums1, 0, nums2, 0, nums1.length);`  변수값 복사, 주소값 다름(깊은복사)
 
 - 객체배열복사
-  - `System.arrayCopy()` 배열의 주소는 다르지만 **배열 속 객체의 주소값은 같음(얕은복사)**
+  - =연산 : 객체배열 주소값 같음(얕은복사)
+  - `System.arrayCopy()` 객체배열의 주소는 다르지만 **배열 속 객체의 주소값은 같음(얕은복사)**
   - `bookArray2[i].setBookName(bookArray1[i].getBookName());`    
      변수값 복사, 주소값 다름(깊은복사)
 
