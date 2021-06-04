@@ -22,4 +22,4 @@
 - [day14](day14) (내부클래스)
 - [day15](day15) (arraycopy())
 - [day16](day16)
-- [day17](day17)
+- [day17](day17) (안드로이드 시작)
