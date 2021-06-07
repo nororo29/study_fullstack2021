@@ -4,10 +4,14 @@
 - findViewById() : id로 ...
   - `Button btn = findViewById(R.id.button2);`
 - 이벤트
-  - btn.setOnClickListener(new View.OnClickListener() {});
-  - checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {});
-  - switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {});
-  - ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {});
+  - 버튼
+    - `btn.setOnClickListener()` : 클릭했을 때 이벤트
+  - 체크박스
+    - `checkbox.setOnCheckedChangeListener()` : 체크 바뀔 때
+  - 스위치
+    - switch.setOnCheckedChangeListener()`
+  - 레이팅바
+    - `ratingBar.setOnRatingBarChangeListener()`
 - 결과 출력(확인)
   - textview : setText()
     - `TextView result = findViewById(R.id.텍스트뷰id);`
