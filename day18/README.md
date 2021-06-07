@@ -25,6 +25,7 @@
 - res > values > strings : 스트링 변수들..저장... @string/name값 으로 사용...
 - module 삭제 : settings.gradle에서 삭제 후 sync now -> 폴더 삭제
 - Linear Layout
-  - horizontal
-  - vertical
+  - horizontal (수평으로 객체추가됨)
+  - vertical (수직으로 객체추가됨)
+  
 - match_parent / wrap_content
