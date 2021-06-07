@@ -2,6 +2,7 @@
 2021.06.07
 
 - findViewById() : id로 ...
+  - `Button btn = findViewById(R.id.button2);`
 - 이벤트
   - btn.setOnClickListener(new View.OnClickListener() {});
   - checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {});
