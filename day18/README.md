@@ -23,7 +23,7 @@
     - `Toast ts = Toast.makeText(MainActivity.this, "메세지",Toast.LENGTH_SHORT);` -> `ts.show();`
     - `Toast.makeText(MainActivity.this, "메세지", Toast.LENGTH_SHORT).show();`
 - res > values > strings : 스트링 변수들..저장... @string/name값 으로 사용...
-- module 삭제 : settings.gradle에서 삭제 후 폴더 삭제
+- module 삭제 : settings.gradle에서 삭제 후 sync now -> 폴더 삭제
 - Linear Layout
   - horizontal
   - vertical
