@@ -21,5 +21,6 @@
 - [day13](day13) (배열, 컬렉션, static)
 - [day14](day14) (내부클래스)
 - [day15](day15) (arraycopy())
-- [day16](day16)
+- [day16](day16) (value, reference)
 - [day17](day17) (안드로이드 시작)
+- [day18](day18) (이벤트, logcat, toast, LinearLayout)
