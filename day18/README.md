@@ -28,4 +28,6 @@
   - horizontal (수평으로 객체추가됨)
   - vertical (수직으로 객체추가됨)
   
+![화면 캡처 2021-06-07 164239](https://user-images.githubusercontent.com/50298349/120978530-8933a700-c7af-11eb-9a15-c845372a4437.png)
+![화면 캡처 2021-06-07 164325](https://user-images.githubusercontent.com/50298349/120978534-89cc3d80-c7af-11eb-9e84-6abcec0eb65d.png)
 - match_parent / wrap_content
