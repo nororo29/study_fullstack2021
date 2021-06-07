@@ -9,7 +9,7 @@
   - 체크박스
     - `checkbox.setOnCheckedChangeListener()` : 체크 바뀔 때
   - 스위치
-    - switch.setOnCheckedChangeListener()`
+    - `switch.setOnCheckedChangeListener()`
   - 레이팅바
     - `ratingBar.setOnRatingBarChangeListener()`
 - 결과 출력(확인)
