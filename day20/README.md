@@ -5,7 +5,8 @@
 
 - 텍스트뷰(View>TextView)
   - textSize : `setTextSize((float)size)`
-  - textColor : `setTextColor(Color.parseColor("#ffffff"))` *ex.Color.RED, Color.rgb(255,255,255)*
+  - textColor : `setTextColor(Color.parseColor("#ffffff"))`   
+    *ex.Color.RED, Color.rgb(255,255,255)*
   - textStyle : bold, italic
   - typeface : 글꼴 `setTypeface(Typeface.MONOSPACE, Typeface.BOLD)`
   - singleLine : 말줄임... `setSingleLine(true)`
@@ -20,8 +21,20 @@
   - drawble폴더에 이미지 넣기 (!!! v24폴더에 넣으면 안나옴...)
   - setImageResource(R.drawable.이미지이름)
   - setScaleType(ImageView.ScaleType.타입명) *ex.FIT_XY, FIT_CENTER...*
-  - 
 
+- 레이아웃
+  - LinearLayout
+    - gravity : 자신에게 포함된 자식을 어디에 위치시킬지
+    - layout_gravity : 자신의 위치를 부모의 어디에 위치시킬지
+    - weight : 비율..
+  - TableLayout : layout_span, layout_column
+  - RelativeLayout
+  - FrameLayout : Layer effect, 레이아웃 겹치기..
+  - GridLayout : rowCount, columncount...
+
+- 뷰컨테이너
+  - 스크롤뷰(View>ViewGroup>FrameLayout>ScrollView) : 스크롤뷰안에 레이아웃넣어서...
+  - 슬라이딩드로어(View>ViewGroup>SlidingDrawer) : content(안 내용), handle(손잡이)
 
 
 ---
