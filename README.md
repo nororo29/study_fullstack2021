@@ -26,3 +26,5 @@
 #### Android
 - [day17](day17) (안드로이드 시작)
 - [day18](day18) (이벤트, logcat, toast, LinearLayout)
+- [day19](day19) ()
+- [day20](day20) ()
