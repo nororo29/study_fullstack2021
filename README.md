@@ -27,4 +27,4 @@
 - [day17](day17) (안드로이드 시작)
 - [day18](day18) (이벤트, logcat, toast, LinearLayout)
 - [day19](day19) (Layout, Intent, 기본위젯)
-- [day20](day20) ()
+- [day20](day20) (텍스트뷰, 컴파운드버튼, 이미지뷰, 레이아웃, 뷰컨테이너)
