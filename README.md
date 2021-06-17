@@ -35,6 +35,7 @@
 - [day23](day23) (시퀀스, 계정만들기, 테이블만들기)
 - [day24](day24) (시퀀스, SELECT문)
 - [day25](day25) (함수 / case / decode)
+- [day26](day26) (to_char함수패턴, 숫자함수, 문자함수)
 
 
 
