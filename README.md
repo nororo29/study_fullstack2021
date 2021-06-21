@@ -37,6 +37,7 @@
 - [day25](day25) (함수 / case / decode)
 - [day26](day26) (to_char함수패턴, 숫자함수, 문자함수)
 - [day27](day27) (날짜함수, between~and, like)
+- [day28](day28) (JOIN)
 
 
 
