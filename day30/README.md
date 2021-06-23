@@ -9,7 +9,7 @@
 - add_months함수로 20년 5개월10일 후 구하기
   - `ADD_MONTHS(hire_date, 5 + 20 * 12) + 10`
 - interval 함수 
-  - ex.`hire_date + (interval '20' year)`
+  - `hire_date + (interval '20' year)`
 
 ---
 
