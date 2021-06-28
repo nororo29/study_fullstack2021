@@ -41,6 +41,7 @@
 - [day29](day29) (UNION, 서브쿼리)
 - [day30](day30) (GROUP BY)
 - [day31](day31) (GROUP BY와 JOIN과 DISTINCT)
-
+- [day32](day32)
+- [day33](day33) (인라인뷰, ROWNUM)
 
 
