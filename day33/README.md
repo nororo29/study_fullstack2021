@@ -45,10 +45,18 @@
     ```
     SELECT m.month||'월', COUNT(e.emp_no)
     FROM (
-       SELECT '01' MONTH FROM dual UNION  SELECT '02' FROM dual UNION  SELECT '03' FROM dual UNION
-       SELECT '04' FROM dual UNION  SELECT '05' FROM dual UNION  SELECT '06' FROM dual UNION
-       SELECT '07' FROM dual UNION  SELECT '08' FROM dual UNION  SELECT '09' FROM dual UNION
-       SELECT '10' FROM dual UNION  SELECT '11' FROM dual UNION  SELECT '12' FROM dual
+          SELECT '01' MONTH FROM dual 
+          UNION  SELECT '02' FROM dual 
+          UNION  SELECT '03' FROM dual 
+          UNION  SELECT '04' FROM dual 
+          UNION  SELECT '05' FROM dual 
+          UNION  SELECT '06' FROM dual 
+          UNION  SELECT '07' FROM dual 
+          UNION  SELECT '08' FROM dual 
+          UNION  SELECT '09' FROM dual 
+          UNION  SELECT '10' FROM dual 
+          UNION  SELECT '11' FROM dual 
+          UNION  SELECT '12' FROM dual
     ) m, employee e
     WHERE TO_CHAR(e.hire_date(+), 'mm') = m.month
     GROUP BY m.month
