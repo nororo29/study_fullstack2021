@@ -85,10 +85,15 @@
 
 - style 속성
 	- position: 
-		- static(default, 코딩순서대로) | relative(부모태그 기준, 코딩위치를 0,0으로 놓고,,,) | absolute(왼쪽상단을 0,0으로 놓고 x축, y축으로 이동)
+		- static(default, 코딩순서대로)
+		- relative(부모태그 기준, 코딩위치를 0,0으로 놓고,,,)
+		- absolute(왼쪽상단을 0,0으로 놓고 x축, y축으로 이동)
 	- left / top  (position: relative | absolute 일 때, 사용가능)
 	- padding 내부 여백 (상->우->하->좌     시계방향)
-		- padding-top / padding-right / padding-bottom / padding-left
+		- padding-top
+		- padding-right
+		- padding-bottom
+		- padding-left
 	- width / height
 	- border
 	- backgroud-color
