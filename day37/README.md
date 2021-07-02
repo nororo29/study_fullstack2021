@@ -15,54 +15,32 @@
 
 ### 문단정리 태그
 
-- <br> 줄 바꿈
-- <hr> 수평선 출력
-- <center> </center>
-- <pre> </pre> 문자열 그대로 출력(공백, 줄바꿈 그대로)
-- <p> 한 행을 비울 때 , 연달아 써도 1행만 인정됨
+	- <br> 			// 줄 바꿈
+	- <hr> 			// 수평선 출력
+	- <pre>...</pre> 	// 문자열 그대로 출력(공백, 줄바꿈 그대로)
+	- <p> 			// 한 행을 비울 때 , 연달아 써도 1행만 인정됨
 
 ### 글자관련 태그
-	<h~> </h~> display속성: block(한행 독차지)
-	<i> </i>, <em> </em> : 이탤릭체
-	-------------------
-	<code>문자열</code>
-	<kbd>문자열</kbd>
-	<tt>문자열</tt>
-	-------------------
-		▶문자열을 타자기체로 바꾼다.
-	-------------------
-	<b>문자열</b>
-	<strong>문자열</strong>
-	-------------------	
-		▶문자열을 굵은 글씨로 바꾼다.
-	-------------------	
-	<sub>문자열</sub>
-	-------------------	
-		▶문자열을 아래 첨자로 바꾼다.
-	-------------------	
-	<sup>문자열</sup>
-	-------------------	
-		▶문자열을 위 첨자로 바꾼다.
-	-------------------
-	<u>문자열</u>
-	-------------------
-		▶문자열에 밑줄을 긋는다.
-	-------------------
-	<s>문자열</s>
-	<strike>문자열</strike>
-	-------------------
-		▶문자열 가운데 선을 긋는다.
+
+	<h~>...</h~> 			// display속성: block(한행 독차지)
+	<i>...</i>, <em>...</em> 	// 이탤릭체
+	
+	<b>...</b>
+	<strong>...</strong>
 
 	
 ### 특수문자 태그
-	&nbsp;   공백1개
-	&lt;	<
-	&gt;	>
-	&quot; 	"
-	&amp;	&
-	&copy;	©
+
+	&nbsp;    // 공백1개
+	&lt;	  // <
+	&gt;	  // >
+	&quot; 	  // "
+	&amp;	  // &
+	&copy;	  // ©
+
 
 ### 링크 태그<a></a>의 용도
+
 	- 페이지 이동
 		- target속성 : 어느 화면에서 페이지 열지...
 		- <a href="xxx.html" target="_blank">..</a>
@@ -88,7 +66,8 @@
 		- <a href="javascript:자바스크립트코드">문자열</a>
 		- ex. <a href="javascript:if(confirm('버튼선택하기')){ alert('햄버거'); } else{ alert('취소버튼'); }">ddd</a>
 
-### 이벤트!!
+
+### 이벤트
 - 웹브라우저에서 발생하는 모든 움직임
 - 이벤트가 발생할 때 Javascript 코드 실행됨
 	- load / unload 
@@ -99,28 +78,29 @@
 	- blur 
 	- change**
 
+
 ### div 태그
 - 그룹화 => [겹쳐놓기], [펼쳐놓기], [감춰놓기]
 - block 형식
 
 - style 속성
-	- position: static(default, 코딩순서대로) | relative(부모태그 기준, 코딩위치를 0,0으로 놓고,,,) | absolute(왼쪽상단을 0,0으로 놓고 x축, y축으로 이동) ;
-	- left: ; / top: ;  (position: relative | absolute; 일 때, 사용가능)
-	- padding: ; 내부 여백 (상->우->하->좌     시계방향)
+	- position: 
+		- static(default, 코딩순서대로) | relative(부모태그 기준, 코딩위치를 0,0으로 놓고,,,) | absolute(왼쪽상단을 0,0으로 놓고 x축, y축으로 이동)
+	- left / top  (position: relative | absolute 일 때, 사용가능)
+	- padding 내부 여백 (상->우->하->좌     시계방향)
 		- padding-top / padding-right / padding-bottom / padding-left
-	- width: ; / height: ;
-	- border: ;
-	- backgroud-color:	;
-	- z-index: ;
+	- width / height
+	- border
+	- backgroud-color
+	- z-index
 	- visibility: visible | hidden(공간 차지);
 	- display: block | none(공간 사라짐);
 
 ### table 태그
 - 행과 열로 표시하는 태그 (컨텐츠의 배치)
-- 행 : <tr>...</tr> 
-- 열 : <td>...</td> | <th>...</th>
-
-- 표제목 : <caption>...</caption>
+- 행 : `<tr>...</tr>` 
+- 열 : `<td>...</td>` | `<th>...</th>`
+- 표제목 : `<caption>...</caption>`
 -----------------------------------------------------------------------------------------------------------------------------
 	<table>
 		<caption>표제목</caption>
