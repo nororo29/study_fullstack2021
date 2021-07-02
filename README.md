@@ -41,12 +41,13 @@
 - [day29](day29) (UNION, 서브쿼리)
 - [day30](day30) (GROUP BY)
 - [day31](day31) (GROUP BY와 JOIN과 DISTINCT)
-- [day32]()
+- [day32]
 - [day33](day33) (인라인뷰, ROWNUM, 페이징처리)
 - [day34](day34) (뷰, UPDATE, CREATE)
 - [day35](day35) (게시판 테이블 구조)
 
 #### HTML
-- [day36](day36) (7/01)
+- [day36]  (7/01)
+- [day37]  (7/02)
 
 
