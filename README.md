@@ -50,4 +50,6 @@
 - day36 (7/01)
 - day37 (이벤트, <a>, <div>, <table>)
 
+#### JavaScript
+- day38 (7/05)
 
