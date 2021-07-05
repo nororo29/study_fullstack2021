@@ -51,5 +51,5 @@
 - [day37](day37) (이벤트, a태그, div태그, table)
 
 #### JavaScript
-- [day38](day38) (JavaScrip)
+- [day38](day38) (JavaScript)
 
