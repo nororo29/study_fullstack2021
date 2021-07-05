@@ -48,7 +48,7 @@
 
 #### HTML
 - day36 (7/01)
-- day37 (이벤트, <a>, <div>, <table>)
+- day37 (이벤트, a태그, div태그, table)
 
 #### JavaScript
 - day38 (7/05)
