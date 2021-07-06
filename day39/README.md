@@ -22,7 +22,7 @@
 - 내장함수 : 미리 만들어져 제공되는 함수
   - alert() / confirm() / prompt()
   - parseInt(숫자문자, 진수) / Number() / isNan()
-  - setInterval(코드 또는 함수, n초*1000) / setTimeout(코드 또는 함수, n초*1000)
+  - setInterval(코드 또는 함수, n초X1000) / setTimeout(코드 또는 함수, n초X1000)
   - typeof()
   - eval(문자열) : 문자열을 자바스크립트 실행 코드로 바꾸어 실행해준다. 
 - 사용자 정의 함수 : 개발자가 만들어 사용하는 함수
