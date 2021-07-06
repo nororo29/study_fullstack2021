@@ -52,4 +52,5 @@
 
 #### JavaScript
 - [day38](day38) (JavaScript)
+- [day39](day39) (자료형, 변수의 종류, 함수의 종류, 객체의 종류)
 
