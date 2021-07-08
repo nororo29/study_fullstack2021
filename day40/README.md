@@ -161,8 +161,6 @@
         xxx = "부적합";
     }
     ```
-    <html>
-    <input type="text" name="uid" size="10">
-    </html>
+<input type="password" name="pwd" size="10">
 
 
