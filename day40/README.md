@@ -51,7 +51,7 @@
   - sort(sortFunction)
   - sort()는  알파벳 순서에 따라 정렬하여, 숫자나 boolean 타입의 경우 잘못 정렬될 수 있다.
   - 숫자 오름차순 정렬
-    `sort( function(a, b) { return a-b; } )`
+    `sort( function(a, b) { return a - b; } )`
   - 숫자 내림차순 정렬
     `sort( function(a, b) { return b - a; })`
     
