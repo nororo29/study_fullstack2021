@@ -161,7 +161,10 @@
         xxx = "부적합";
     }
     ```
+    
+    ```
     <input type="text" name="uid" size="10">
-  <input type="button" value="로그인">
+    <input type="button" value="로그인">
+    ```
 
 
