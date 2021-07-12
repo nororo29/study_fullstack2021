@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>새 글쓰기</title>
+    <script src="common_func.js"></script>
+    <script>
+
+        // 게시판 새글쓰기 화면에 입력한 데이터 유효성 체크 함수
+        function checkRegForm() {
+            var writer = document.boardRegForm.writer.value;
+            var subject = document.boardRegForm.subject.value;
+            var email = document.boardRegForm.email.value;
+            var content = document.boardRegForm.content.value;
+            var pwd = document.boardRegForm.pwd.value;
+            var pic = document.boardRegForm.pic.value;
+
+            // alert(pic.lastIndexOf(".PNG"));  // C:\fakepath\게시판메인참고1.PNG
+            // alert(writer + ", " + subject + ", " + email + ", " + content + ", " + pwd)
+
+            // 유효성 체크
+            // writer 검사 : 한글 2~10자
+            // 공용함수 isValidPattern(패턴식, 검사값) 사용!!
+            if(!isValidPattern(/^[가-힣]{2,10}$/, writer)) {
+                alert("글쓴이는 한글 2자 이상 10자 이하여야 합니다.");
+                document.boardRegForm.writer.focus();
+                return;
+            }
+
+            // 제목 subject 검사 : 공백 X, 2~30자  // RegExp가 더 복잡한 경우...
+            if (isEmpty(subject)) {
+                alert("제목을 입력해주세요.");
+                document.boardRegForm.subject.value = "";   // 제목 입력란 비우기
+                document.boardRegForm.subject.focus();
+                return;
+            }
+            if (subject.length < 2 || subject.length > 30) {
+                alert("제목은 2자이상 30자 이하여야 합니다.");
+                document.boardRegForm.subject.focus();
+                return;
+            }
+
+            // email 검사
+            if (!isValidEmail(email)) {
+                alert("이메일이 잘못되었습니다.");
+                document.boardRegForm.email.focus();
+                return;
+            }
+
+            // 내용 content 검사 : 공백 X, 900자 미만
+            if (isEmpty(content)) {
+                alert("내용을 입력해주세요.");
+                document.boardRegForm.content.value = "";   // 제목 입력란 비우기
+                document.boardRegForm.content.focus();
+                return;
+            }
+            if (content.length >= 900) {
+                alert("내용은 900자 미만이어야 합니다.");
+                document.boardRegForm.content.focus();
+                return;
+            }
+
+            // pwd 검사 : 숫자 4자
+            if(!isValidPattern(/^[0-9]{4}$/, pwd)) {
+                alert("암호는 숫자 4글자여야 합니다.");
+                document.boardRegForm.pwd.value="";
+                document.boardRegForm.pwd.focus();
+                return;
+            }
+
+            // 이미지 pic 검사
+            if (!isEmpty(pic)) {  // 체크 1 : 파일 있는지 없는지 검사,, 이미지 있으면 코드실행
+                // 선택된 이미지 확장자가 jpg 또는 png 아니면 경고하고, 함수 중단
+                if( !isValidPattern(/\.(jpg|png)$/, pic.toLowerCase()) ) {  //jpg, JPG, png, PNG 대소문자 구분 없이...
+                    alert("선택하신 파일의 확장자는 jpg 또는 png이어야 합니다.");
+                    document.boardRegForm.pic.value="";
+                    return;
+                }
+            }
+
+            // 새글쓰기 확정 질문
+            // form의 action부분 : boardRegProc.html로 submit()
+            if(confirm("새글쓰기를 정말 하시겠습니까?")) {
+                document.boardRegForm.submit();
+            }
+
+        }
+
+
+        // test할 때 입력 미리 해주는 함수
+        function setting() {
+            // alert(1);  // 화면 맨처음 뜰 때 호출
+            document.boardRegForm.writer.value = "사오정";
+            document.boardRegForm.subject.value = "글제목입니다...";
+            document.boardRegForm.email.value = "a@aaa.com";
+            document.boardRegForm.content.value = "글내용입니다...";
+            document.boardRegForm.pwd.value = "1111";
+        }
+
+
+    </script>
+</head>
+<!-- load이벤트 : 로딩이 완료된 후 함수 호출!! -->
+<body onload="setting();"> 
+    <center>
+        <form name="boardRegForm" enctype="multipart/form-data" action="boardRegProc.html">
+        <table>
+            <tr><th>[새 글쓰기]</th></tr>
+            <tr><td>
+                <table border="1" style="border-collapse: collapse;" cellpadding=4>
+                    <tr>
+                        <th bgcolor="#f2f2f2">이름</th>
+                        <td><input type="text" name="writer" maxlength="7"></td>
+                    </tr>
+                    <tr>
+                        <th bgcolor="#f2f2f2">제목</th>
+                        <td><input type="text" name="subject" size="80" maxlength="20" ></td>
+                    </tr>
+                    <tr>
+                        <th bgcolor="#f2f2f2">Email</th>
+                        <td><input type="text" name="email" size="80" maxlength="30"></td>
+                    </tr>
+                    <tr>
+                        <th bgcolor="#f2f2f2">내용</th>
+                        <td><textarea name="content" cols="73" rows="10" maxlength="500"></textarea></td>
+                    </tr>
+                    <tr>
+                        <!-- 이미지의 경로 키보드로 칠 수 없음,,,마우스로 선택만 가능 -->
+                        <!-- 유효성 체크 1 : 파일이 있냐 없냐 검사 -->
+                        <!-- 유효성 체크 2 : 확장자 검사, 올리지 못하는 확장자 골라내기 -->
+                        <th bgcolor="#f2f2f2">사진</th>
+                        <td><input type="file" name="pic"></td>
+                    </tr>
+                    <tr>
+                        <th bgcolor="#f2f2f2">비밀번호</th>
+                        <td><input type="password" name="pwd" maxlength="4"></td>
+                    </tr>
+                </table>
+            </td></tr>
+            <tr><td align="center">
+                <input type="button" value="저장" onclick="checkRegForm();">
+                <input type="reset" value="초기화">
+                <input type="button" value="전체 글 보기" onclick="location.replace('boardList.html');">
+                <input type="button" value="로그아웃" onclick="location.replace('loginForm.html');">
+            </td></tr>
+        </table>
+    </form>
+    </center>
+</body>
+
+</html>
