@@ -55,4 +55,5 @@
 - [day39](day39) (자료형, 변수의 종류, 함수의 종류, 객체의 종류)
 - [day40](day40) (Array객체, Date객체, String객체)
 - [day41](day41) (Math객체, RegExp객체)
+- [day42](day42) (게시판-새글쓰기 //유효성 검사, onload이벤트사용, 첨부파일 보내기)
 
