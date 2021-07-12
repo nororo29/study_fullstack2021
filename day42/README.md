@@ -70,6 +70,13 @@ if (!isEmpty(pic)) {  // 체크 1 : 파일 있는지 없는지 검사,, 이미�
 }
 ```
 
+- form의 enctype 지정해주기
+```html
+// enctype 속성은 폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩되는 방법을 명시한다.
+// multipart/form-data : <form> 요소가 파일이나 이미지를 서버로 전송할 때 주로 사용
+<form name="boardRegForm" enctype="multipart/form-data" action="boardRegProc.html">
+```
+
 ## ✔ onload이벤트 
 - <body> 부분에서 이벤트 처리
 ```html
@@ -88,3 +95,33 @@ function setting() {
     document.boardRegForm.pwd.value = "1111";
 }
 ```
+
+## ✔ form 서버로 보내기
+- 새글쓰기 확정 질문
+```javascript
+// form의 action부분으로 전달 : boardRegProc.html로 submit()
+if(confirm("새글쓰기를 정말 하시겠습니까?")) {
+    document.boardRegForm.submit();
+}
+```
+
+- 새글쓰기 성공할 경우 : 게시판목록("boardList.html")으로 이동
+```javascript
+// boardRegProc.html
+
+<script>
+    alert("새글쓰기 성공");
+    location.replace("boardList.html");
+</script>
+```
+
+- 새글쓰기 실패할 경우 : 바로 이전 페이지로 이동
+```javascript
+// boardRegProc.html
+
+<script>
+    alert("새글쓰기 실패");
+    history.go(-1);  // 바로 이전 페이지로 이동
+</script>
+```
+
