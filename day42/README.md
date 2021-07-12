@@ -3,8 +3,9 @@
 
 게시판 - 새글쓰기(boardRegForm.html)
 
+
 ## ✔ 유효성 검사
-- RegExp를 이용하여 유효성을 검색하는 공용함수 만들기
+#### ▪ RegExp를 이용하여 유효성을 검색하는 공용함수 만들기
 ```javascript
 // common_func.js파일
 // 패턴검사 공용함수
@@ -13,7 +14,7 @@ function isValidPattern(regExpObj, targetStr) {
 }
 ```
 
-- 공용함수 사용하여 유효성 체크
+#### ▪ 공용함수 사용하여 유효성 체크
 ```javascript
 // writer 검사 : 한글 2~10자
 // 공용함수 isValidPattern(패턴식, 검사값) 사용!!
@@ -24,7 +25,7 @@ if(!isValidPattern(/^[가-힣]{2,10}$/, writer)) {
 }
 ```
 
-- RegExp사용이 더 복잡할 경우 (ex. 글제목, 글내용 - 공백 X, n자 미만인지 검사)
+#### ▪ RegExp사용이 더 복잡할 경우 (ex. 글제목, 글내용 - 공백 X, n자 미만인지 검사)
 ```javascript
 // 제목 subject 검사 : 공백 X, 2~30자
 if (isEmpty(subject)) {  // 공백일 경우
@@ -40,14 +41,15 @@ if (subject.length < 2 || subject.length > 30) {
 }
 ```
 
+<br><br>
 ## ✔ 첨부파일 보내기
-- 들어온 첨부파일 확인해보기
+#### ▪ 들어온 첨부파일 확인해보기
 ```javascript
 var pic = document.boardRegForm.pic.value;
 alert(pic);  // C:\fakepath\파일명.PNG
 ```
 
-- body에서 첨부파일 <input type="file"> 태그
+#### ▪ body에서 첨부파일 `<input type="file">` 태그
 ```html
 <tr>
     <!-- 이미지의 경로 키보드로 칠 수 없음,,,마우스로 선택만 가능 -->
@@ -58,7 +60,7 @@ alert(pic);  // C:\fakepath\파일명.PNG
 </tr>
 ```
 
-- 첨부파일 유효성 검사 : 파일 있는지 없는지 검사 => 있다면, 확장자 검사
+#### ▪ 첨부파일 유효성 검사 : 파일 있는지 없는지 검사 => 있다면, 확장자 검사
 ```javascript
 if (!isEmpty(pic)) {  // 체크 1 : 파일 있는지 없는지 검사,, 이미지 있으면 코드실행
   // 체크 2 : 선택된 이미지 확장자가 jpg 또는 png 아니면 경고하고, 함수 중단
@@ -70,21 +72,22 @@ if (!isEmpty(pic)) {  // 체크 1 : 파일 있는지 없는지 검사,, 이미�
 }
 ```
 
-- form의 enctype 지정해주기
+#### ▪ form의 enctype 지정해주기
 ```html
 // enctype 속성은 폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩되는 방법을 명시한다.
 // multipart/form-data : <form> 요소가 파일이나 이미지를 서버로 전송할 때 주로 사용
 <form name="boardRegForm" enctype="multipart/form-data" action="boardRegProc.html">
 ```
 
+<br><br>
 ## ✔ onload이벤트 
-- <body> 부분에서 이벤트 처리
+#### ▪ body 부분에서 이벤트 처리
 ```html
 <!-- load이벤트 : 로딩이 완료된 후 함수 호출!! -->
 <body onload="setting();"> 
 ```
   
-- 웹 화면 테스트 중에, 입력을 미리 해주는 함수 => 함수로 빼 놓아야 나중에 삭제하기 쉬움!!
+#### ▪ 웹 화면 테스트 중에, 입력을 미리 해주는 함수 => 함수로 빼 놓아야 나중에 삭제하기 쉬움!!
 ```javascript
 function setting() {
     // alert(1);  // 화면 맨처음 뜰 때 호출
@@ -96,8 +99,9 @@ function setting() {
 }
 ```
 
+<br><br>
 ## ✔ form 서버로 보내기
-- 새글쓰기 확정 질문
+#### ▪ 새글쓰기 확정 질문
 ```javascript
 // form의 action부분으로 전달 : boardRegProc.html로 submit()
 if(confirm("새글쓰기를 정말 하시겠습니까?")) {
@@ -105,7 +109,7 @@ if(confirm("새글쓰기를 정말 하시겠습니까?")) {
 }
 ```
 
-- 새글쓰기 성공할 경우 : 게시판목록("boardList.html")으로 이동
+#### ▪ 새글쓰기 성공할 경우 : 게시판목록("boardList.html")으로 이동
 ```javascript
 // boardRegProc.html
 
@@ -115,7 +119,7 @@ if(confirm("새글쓰기를 정말 하시겠습니까?")) {
 </script>
 ```
 
-- 새글쓰기 실패할 경우 : 바로 이전 페이지로 이동
+#### ▪ 새글쓰기 실패할 경우 : 바로 이전 페이지로 이동
 ```javascript
 // boardRegProc.html
 
