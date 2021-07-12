@@ -72,7 +72,7 @@ if (!isEmpty(pic)) {  // 체크 1 : 파일 있는지 없는지 검사,, 이미�
 }
 ```
 
-#### ▪ form의 enctype 지정해주기
+#### ▪ form의 `enctype` 속성 지정해주기
 ```html
 // enctype 속성은 폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩되는 방법을 명시한다.
 // multipart/form-data : <form> 요소가 파일이나 이미지를 서버로 전송할 때 주로 사용
