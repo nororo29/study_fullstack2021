@@ -56,4 +56,5 @@
 - [day40](day40) (Array객체, Date객체, String객체)
 - [day41](day41) (Math객체, RegExp객체)
 - [day42](day42) (게시판 새글쓰기 - 유효성 검사, onload이벤트사용, 첨부파일 보내기)
+- [day43](day43) (게시판 회원가입 - 라디오버튼/체크박스 유효성검사)
 
