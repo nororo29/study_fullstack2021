@@ -95,7 +95,7 @@ if (getCheckedCnt(formObj.hobby) < 1) {
 
 <br><br>
 ## ✔ 체크박스 값이 1개인 경우
-#### ▪ Array객체가 아니다. => length 속성변수가 없다. (ex. 동의합니다 버튼)
+#### ▪ html 코드 (ex. 동의합니다 버튼)
 ```html
 <tr>
   <td colspan="2">
@@ -105,9 +105,9 @@ if (getCheckedCnt(formObj.hobby) < 1) {
 </tr>
 ```
 
+#### ▪ Array객체가 아니다. => length 속성변수가 없다. 
 ```javascript
-// 동의버튼 (체크박스 값 1개인 경우) : 반복문 X, Array객체가 아님!!
-
+// 동의버튼 (체크박스 값 1개인 경우) : 반복문을 사용할 수 없음, Array객체가 아님!!
 // length : 존재하지 않는 속성변수 => undefined 반환(Array가 아니기 때문)
 alert(formObj.confirm.length);  // undefined
 
@@ -117,8 +117,7 @@ alert(formObj.confirm.length);  // undefined
 ```javascript
 if (len == undefined) {
   // 체크박스가 1개밖에 없을 때,,, len에 undefined가 들어감
-  if (arrObj.checked == false) {
-    // 체크 안되어 있으면,,,
+  if (arrObj.checked == false) {  // 체크 안되어 있으면,,,
     return 0;
   } else {
     return 1;
@@ -126,7 +125,8 @@ if (len == undefined) {
 }
 
 ```
-
+  
+#### ▪ 공용함수 사용하기
 ```javascript
 if (getCheckedCnt(formObj.confirm) == 0) {
   alert("개인정보 수집에 동의해주세요.");
