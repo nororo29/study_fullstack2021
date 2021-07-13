@@ -29,7 +29,7 @@
 
 ```
 
-#### ▪ Javascript에서 라디오버튼 값 가져오기
+#### ▪ Javascript에서 라디오버튼 값 가져오기 - 유지보수 어려움
 ```javascript
 // document.memberRegForm.gender[인덱스]
 // checked 속성변수 : checked 되었는지 true/false 반환
