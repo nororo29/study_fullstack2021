@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>글 수정/삭제</title>
+    <script src="common_func.js"></script>
+    <script>
+      // 수정버튼 눌렀을 때 유효성 체크
+      function checkUpForm() {
+        var formObj = document.boardUpForm; // form의 name값 : boardUpForm!!
+
+        // 비밀번호가 맞아야 나머지 유효성 체크
+        var pwd = formObj.pwd.value;
+
+        if (pwd != "1111") {
+          alert("비밀번호가 일치하지 않아 수정 또는 삭제가 불가능 합니다.");
+          return;
+        }
+
+        var writer = formObj.writer.value;
+        var subject = formObj.subject.value;
+        var email = formObj.email.value;
+        var content = formObj.content.value;
+        var pic = formObj.pic.value;
+
+        // 유효성 체크
+        // writer 검사 : 한글 2~10자, 공용함수 사용
+        if (!isValidPattern(/^[가-힣]{2,10}$/, writer)) {
+          alert("글쓴이는 한글 2자 이상 10자 이하여야 합니다.");
+          formObj.writer.focus();
+          return;
+        }
+
+        // 제목 subject 검사 : 공백 X, 2~30자  // RegExp가 더 복잡한 경우...
+        if (isEmpty(subject)) {
+          alert("제목을 입력해주세요.");
+          formObj.subject.value = ""; // 제목 입력란 비우기
+          formObj.subject.focus();
+          return;
+        }
+        if (subject.length < 2 || subject.length > 30) {
+          alert("제목은 2자이상 30자 이하여야 합니다.");
+          formObj.subject.focus();
+          return;
+        }
+
+        // email 검사
+        if (!isValidEmail(email)) {
+          alert("이메일이 잘못되었습니다.");
+          formObj.email.focus();
+          return;
+        }
+
+        // 내용 content 검사 : 공백 X, 900자 미만
+        if (isEmpty(content)) {
+          alert("내용을 입력해주세요.");
+          formObj.content.value = ""; // 제목 입력란 비우기
+          formObj.content.focus();
+          return;
+        }
+        if (content.length >= 900) {
+          alert("내용은 900자 미만이어야 합니다.");
+          formObj.content.focus();
+          return;
+        }
+
+        // 이미지 pic 검사
+        if (!isEmpty(pic)) {
+          if (!isValidPattern(/\.(jpg|png)$/, pic.toLowerCase())) {
+            alert("선택하신 파일의 확장자는 jpg 또는 png이어야 합니다.");
+            formObj.pic.value = "";
+            return;
+          }
+        }
+
+        // 수정 확정 질문
+        // form의 action부분 : boardUpProc.html로 submit()
+        if (confirm("댓글을 정말 수정 하시겠습니까?")) {
+          formObj.submit();
+        }
+      }
+
+      // 삭제버튼 눌렀을 때 함수
+      function checkDelForm() {
+          
+        // 비밀번호가 맞아야 삭제
+        // boardUpForm!!  => pwd가 있는 form!!
+        var pwd = document.boardUpForm.pwd.value;
+
+        if (pwd != "1111") {
+          alert("비밀번호가 일치하지 않아 수정 또는 삭제가 불가능 합니다.");
+          return;
+        }
+
+        // 삭제 확정 질문
+        // boardDelForm의 action부분 : boardDelProc.html로 submit()
+        if (confirm("댓글을 정말 삭제 하시겠습니까?")) {
+          document.boardDelForm.submit();
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <center>
+      <!-------------------------------- 수정 부분 form -------------------------------->
+      <form
+        name="boardUpForm"
+        enctype="multipart/form-data"
+        action="boardUpProc.html"
+      >
+        <table>
+          <tr>
+            <th>[글 수정/삭제]</th>
+          </tr>
+          <tr>
+            <td>
+              <table
+                border="1"
+                style="border-collapse: collapse"
+                cellpadding="4"
+              >
+                <tr>
+                  <th bgcolor="#f2f2f2">이름</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="writer"
+                      maxlength="7"
+                      value="ㅇㅇㅇ"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th bgcolor="#f2f2f2">제목</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="subject"
+                      size="80"
+                      maxlength="20"
+                      value="글제목입니다...."
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th bgcolor="#f2f2f2">Email</th>
+                  <td>
+                    <input
+                      type="text"
+                      name="email"
+                      size="80"
+                      maxlength="30"
+                      value="a@naver.com"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th bgcolor="#f2f2f2">내용</th>
+                  <td>
+                    <textarea
+                      name="content"
+                      cols="73"
+                      rows="10"
+                      maxlength="500"
+                    >
+s나나나나엊ㅇ라
+                    </textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <th bgcolor="#f2f2f2">이미지</th>
+                  <td>
+                    <img src="Img/sea.jpg" style="width: 300px" /><br />
+                    <input type="file" name="pic" />
+                  </td>
+                </tr>
+                <tr>
+                  <th bgcolor="#f2f2f2">비밀번호</th>
+                  <td><input type="password" name="pwd" maxlength="4" /></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <input type="button" value="수정" onclick="checkUpForm();" />
+              <input type="button" value="삭제" onclick="checkDelForm();" />
+              <input type="reset" value="초기화" />
+              <input
+                type="button"
+                value="전체 글 보기"
+                onclick="location.replace('boardList.html');"
+              />
+              <input
+                type="button"
+                value="로그아웃"
+                onclick="location.replace('loginForm.html');"
+              />
+            </td>
+          </tr>
+        </table>
+      </form>
+
+      <!----------------------------- 삭제 부분 form 생성 ----------------------------->
+      <form name="boardDelForm" action="boardDelProc.html"></form>
+
+    </center>
+  </body>
+</html>
