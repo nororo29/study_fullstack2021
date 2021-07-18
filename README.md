@@ -59,3 +59,5 @@
 - [day43](day43) (회원가입 화면 - 라디오버튼/체크박스 유효성검사)
 - [day44](day44) (회원가입 화면 - select/option태그, 수정삭제 화면 - form여러개사용)
 - [day45](day45) (예외처리, BOM객체)
+- [day46](day46) (DOM객체, JQuery객체)
+
