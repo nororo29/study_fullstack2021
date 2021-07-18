@@ -116,14 +116,14 @@
 
 <br><br>
 ## ✔ JQuery 객체
-### ▶ 장점
+####  장점
 - 대부분의 브라우저에서 동일한 실행 결과를 가진다. (= 크로스 브라우징)
 - 짧은 코딩으로 쉽게 처리할 수 있다.
 
-### ▶ JQuery 객체의 메모리 위치 주소
+#### JQuery 객체의 메모리 위치 주소
 - jQuery("선택자") 또는 $("선택자") 라는 함수를 호출하면 JQuery 객체 메모리 위치 주소를 리턴한다.
 
-### ▶ JQuery 객체 사용 방법
+#### JQuery 객체 사용 방법
 1. jquery-x.x.x.min.js 다운 받는다. x 는 임의의 버전 번호이다.
 2. HTML의 head 태그에 아래와 같이 수입하는 코드를 작성한다.   
 		`<script src="jquery-x.x.x.min.js" type="text/javascript"></script>`  
