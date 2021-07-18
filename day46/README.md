@@ -6,7 +6,8 @@
 - HTML에서 [태그]를 관리하는 객체
 - 웹브라우저가 HTML 파일 안의 태그들을 읽어 [객체]를 생성하고, [객체]에 대응하는 [컨텐츠]를 [웹브라우저 화면]으로 출력한다.
 
-### ▶ Form 객체
+<details>
+<summary><strong>Form 객체</strong></summary>
 - Form 태그를 관리하는 객체
 
 - 속성변수
@@ -17,9 +18,11 @@
 - 메소드
   - submit() : action속성변수 안의 URL주소로 전달
   - reset() : 입력된 데이터 초기값으로 변경
+</details>
 
-### ▶ Text 객체
-- `<input type="text" ~>` 태그를 관리하는 객체
+<details>
+<summary><strong>Text 객체</strong></summary>
+- [input type="text" ~] 태그를 관리하는 객체
 
 - 속성변수
   - value : 입력된 데이터
@@ -28,49 +31,59 @@
   - focus() : [문자입력상자] 안에 커서를 들여 놓는다
   - blur() : [문자입력상자] 안에 커서를 뺀다.
   - select() : [문자입력상자] 안을 드래그 하여 입력 내용을 선택하도록 한다.
+</details>
 
-### ▶ Password 객체
-- `<input type="password" name="xxx" ~>` 태그를 관리하는 객체
-
-- 속성변수
-  - value
-  - defaultValue
-- 메소드
-  - focus() / blur() / select()
-
-### ▶ Textarea 객체
-- `<textarea name="xxx" ~> ~ </textarea>` 태그를 관리하는 객체
+<details>
+<summary><strong>Password 객체</strong></summary>
+- [input type="password" name="xxx" ~] 태그를 관리하는 객체
 
 - 속성변수
   - value
   - defaultValue
 - 메소드
   - focus() / blur() / select()
+</details>
 
-### ▶ Hidden 객체
-- `<input type="hidden" name="xxx" ~>` 태그를 관리하는 객체
+<details>
+<summary><strong>Textarea 객체</strong></summary>
+- [<textarea name="xxx" ~> ~ </textarea>] 태그를 관리하는 객체
+
+- 속성변수
+  - value
+  - defaultValue
+- 메소드
+  - focus() / blur() / select()
+</details>
+
+<details>
+<summary><strong>Hidden 객체</strong></summary>
+- [input type="hidden" name="xxx" ~] 태그를 관리하는 객체
 - 화면에 보이고 싶지는 않지만 서버로 보내고 싶은 데이터가 있을 때 사용한다.
--	검색 화면에서 많이 사용!!
--	주로 [자바스크립트에서 제작된 데이터]를 담거나, DB검색을 출력 시 [PK값]이 저장되기도 한다.
--	<주의> 보이지 않으므로 사용자가 키보드로 입력할 수 없는 입력양식이다.
+- 검색 화면에서 많이 사용!!
+- 주로 [자바스크립트에서 제작된 데이터]를 담거나, DB검색을 출력 시 [PK값]이 저장되기도 한다.
+- <주의> 보이지 않으므로 사용자가 키보드로 입력할 수 없는 입력양식이다.
 
 - 속성변수
   - value
   - defaultValue
 - 메소드
   - focus() / blur() / select()
+</details>
 
-### ▶ FileUpload 객체
-- `<input type="file" name="xxx" ~>` 태그를 관리하는 객체
+<details>
+<summary><strong>FileUpload 객체</strong></summary>
+- [input type="file" name="xxx" ~] 태그를 관리하는 객체
 
 - 속성변수
   - value : 파일의 이름이 저장된다.
   - defaultValue
 - 메소드
   - focus() / blur() / select()
+</details>
 
-### ▶ Radio 객체
-- `<input type="radio" name="xxx" ~>` 태그를 관리하는 객체
+<details>
+<summary><strong>Radio 객체</strong></summary>
+- [input type="radio" name="xxx" ~] 태그를 관리하는 객체
 - name 값이 같은 라디오 버튼의 개수가 2개 이상일 경우 ( Array객체 )
   - document.form태그name값.xxx[i].속성변수
 - name 값이 같은 라디오 버튼의 개수가 1개일 경우
@@ -81,9 +94,11 @@
   - checked : true/false
 - 메소드
   - click() : 라디오 버튼의 체크를 넣어주거나 체크가 풀린다.
+</details>
 
-### ▶ Checkbox 객체
-- `<input type="checkbox" name="xxx" ~>` 태그를 관리하는 객체
+<details>
+<summary><strong>Checkbox 객체</strong></summary>
+- [input type="checkbox" name="xxx" ~] 태그를 관리하는 객체
 - name 값이 같은 체크박스 버튼의 개수가 2개 이상일 경우 ( Array객체 )
   - document.form태그name값.xxx[i].속성변수
 - name 값이 같은 체크박스 버튼의 개수가 1개일 경우
@@ -94,10 +109,11 @@
   - checked : true/false
 - 메소드
   - click() : 체크박스 버튼의 체크를 넣어주거나 체크가 풀린다.
+</details>
 
-
-### ▶ Select 객체
-- `<select name="xxx" ~>` 태그를 관리하는 객체
+<details>
+<summary><strong>Select 객체</strong></summary>
+- [select name="xxx" ~] 태그를 관리하는 객체
 
 - 속성변수
   - value : 선택한 목록의 value 속성값
@@ -106,13 +122,17 @@
   - options : Option 객체들을 저장한 Array 객체 메모리 위치 주소값
 - 메소드
   - focus() / blur()
+</details>
 
-### ▶ Option 객체
+<details>
+<summary><strong>Option 객체</strong></summary>
 - select 태그 안에 삽입되는 option 태그를 관리하는 객체
 
 - 속성변수
   - text : `<option value="값">문자열</option>`  에서 문자열
   - value : `<option value="값">문자열</option>`  에서 "값"
+</details>
+
 
 <br><br>
 ## ✔ JQuery 객체
