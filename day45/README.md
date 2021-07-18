@@ -29,6 +29,7 @@ finally{
 자바스크립트 코드로 접근하고 제어할 수 있도록 설계된 객체들의 그룹  
 
 <br>
+
 ### ▶ window 객체
 #### 객체 생성되는 경우
 - 브라우저가 새로운 웹 페이지를 로드할 때 window 객체 자동 생성
@@ -63,6 +64,7 @@ finally{
 
 
 <br>
+
 ### ▶ location 객체
 - 윈도우에 로드된 웹 페이지의 **URL정보**를 나타내는 객체
 
@@ -82,6 +84,7 @@ finally{
 |reload()|현재 웹 화면에 있는 페이지를 다시 로드한다.|
 
 <br>
+
 ### ▶ history 객체
 - 웹 브라우저의 History List(방문한 적이 있는 URL주소)를 관리하는 객체
 - `window.history` 혹은 `history`로 접근한다.
@@ -99,6 +102,7 @@ finally{
 |back()|현재 페이지를 그 이전 페이지로 이동. go(-1)과 동일|
 
 <br>
+
 ### ▶ screen 객체
 - 현재 모니터의 해상도, 색상, 화면의 크기 등에 관한 정보를 제공하는 객체
 - `window.screen` 혹은 `screen`로 접근한다.
@@ -114,6 +118,7 @@ finally{
 |colorDepth|사용 가능한 색상수, pixelDepth와 동일|r|
 
 <br>
+
 ### ▶ navigator 객체
 - 현재 작동중인 브라우저에 대한 각종 정보를 제공하는 객체
 - `window.navigator` 혹은 `navigator`로 접근한다.
@@ -128,6 +133,7 @@ finally{
 |userAgent|웹브라우저의 전체적인 정보|r|
 
 <br>
+
 ### ▶ document 객체
 - DOM 트리의 최상위 객체 (DOM객체는 아니다)
 - HTML문서의 전반적인 속성을 나타낸다.
@@ -147,6 +153,7 @@ finally{
 |write()|documetn에 html 컨텐츠 삽입|
 
 <br>
+
 ### ▶ event 객체
 - 웹 화면에서 발생하는 모든 움직임(=이벤트)를 관리하는 객체
 - 이벤트가 발생하면, 이벤트에 관련된 다양한 정보를 담은 이벤트 객체를 만들어 이벤트 리스너에 전달한다.
