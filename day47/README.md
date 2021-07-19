@@ -5,6 +5,8 @@
 - 개발자가 선언하는 새로운 객체
 - new Object() / 리터럴표기법(일회성사용자정의객체) / 프로토타입(생성자함수)
 
+<br>
+
 ### ▶ new Object()로 객체 만들기 (일회성)
 #### 객체 생성 코드
 ```javascript
@@ -35,6 +37,8 @@ sungjuk.s_no = 3;
 alert(sungjuk.getS_no());
 
 ```
+
+<br>
 
 ### ▶ 리터럴 표기법으로 객체 만들기 (일회성)
 - 생성자 함수 없이 만들어지는 객체이다.
@@ -117,6 +121,8 @@ alert(dept.length)  // 부서의 개수
 ```
 
 
+<br>
+
 ### ▶ 프로토타입으로 객체 만들기
 #### 객체 생성 코드
 ```javascript
@@ -143,6 +149,9 @@ var sungjuk = new Sungjuk(1, "사오정", 91, 81, 71);
 alert(sungjuk.getAvg());
 
 ```
+
+<br>
+<br>
 
 ## ✔ JSON
 ### JSON이란
@@ -176,8 +185,9 @@ var 변수명 = {
 }
 
 변수명["문자열n"];  // 키값("문자열n")에 대응하는 데이터 호출
+```
 
-
+```javascript
 // 예시
 var windowAirCondition = {
 	"제품번호" : 1
