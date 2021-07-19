@@ -60,4 +60,6 @@
 - [day44](day44) (회원가입 화면 - select/option태그, 수정삭제 화면 - form여러개사용)
 - [day45](day45) (예외처리, BOM객체)
 - [day46](day46) (DOM객체, JQuery객체)
+- [day47](day47) (사용자정의객체, JSON)
+
 
