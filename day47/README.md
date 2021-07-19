@@ -204,5 +204,34 @@ alert(windowAirCondition["제품이름"]);  // "창문형에어콘"
 - <주의> 데이터는 주로 문자열 또는 숫자이다. 즉 모든 프로그래밍 언어가 공유할 수 있는 데이터이다.
 
 
+<br>
+<br>
+
+## ✔ 게시판에서 JSON 사용하기...
+### common_data.js 파일 만들기
+json을 통해 데이터모음만 있는 자바스크립트 파일
+```javascript
+//JSON 선언
+var weekMsg = {
+	"월요일": "월요일은 9시에 회의 있습니다."  // JSON객체는 키값 문자열!!
+	, "화요일": "화요일은 1시에 회의 있습니다."
+	, "수요일": "수요일은 2시에 회의 있습니다."
+	, "목요일": "목요일은 3시에 회의 있습니다."
+	, "금요일": "금요일은 4시에 회의 있습니다."
+	, "토요일": "토요일은 5시에 회의 있습니다."
+}
+```
+### html 파일 script태그 안에서 JSON 데이터 부르기
+```javascript
+function openMessage() {
+	var week = getTodayWeek();  // 요일 반환하는 함수 // ex. "월요일"
+
+	// JSON객체 weekMsg에서 "키값" week의 대응 문자 얻기
+	var msg = weekMsg[week]; 
+
+	alert(msg);  // ex. "월요일은 9시에 회의 있습니다."
+}
+```
+
 
 
