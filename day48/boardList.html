@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>전체글보기</title>
+    <script src="common_func.js"></script>
+    <script src="common_data.js"></script>
+    <script>
+
+        function openWeekMessage() {
+            var week = getTodayWeek();   // week = "금요일"...
+
+            // JSON객체 weekMsg에서 키값 week의 대응 문자 얻기
+            var msg = weekMsg[week]; 
+
+            alert(msg);
+
+            // alert(deleteBlank(11111111));
+        }
+
+        // 오늘날짜이면 scheduleMsg 출력하기.
+        function getScheduleMsg() {
+          var tot_msg = [];
+
+          for (var i = 0; i < scheduleMsg.length; i++) {
+            var date = scheduleMsg[i][0];
+            var msg = scheduleMsg[i][1];
+
+            if (isToday(date)) {
+            // if (date == "2021-11-03") {
+              // tot_msg += msg 같이 스트링에 더하기 형식은 메모리 낭비가 심함!
+              tot_msg.push(msg);  // 날짜에 두개의 메세지 있는 경우!!
+            }
+          }
+
+          return tot_msg.join(" ");
+        }
+
+        // 명언 랜덤으로 내보내는 함수
+        function get_goldenSaying() {
+          var goldenSayingLen = goldenSaying.length;
+
+          var ranNum = Math.floor(Math.random()*goldenSayingLen)
+          // alert(ranNum);
+
+          return goldenSaying[ranNum];
+
+        }
+
+        // 디데이 구하는 함수
+        function get_DDayMsg() {
+          var arr = [];
+          
+          for (var i = 0; i < dDayMsg.length; i++) {
+            var date = deleteBlank(dDayMsg[i][0]);
+            var msg = dDayMsg[i][1];
+
+            var interval_day = get_dDay(date);
+
+            if (interval_day >= 0 && interval_day <= 30) {
+              arr.push(date + " " + msg + "까지 " + interval_day + "일 남았습니다.");
+            }
+          }
+
+          if (arr.length > 0) {  //배열안에 값 존재하면 리턴
+            return arr.join("<br>");
+          } else {
+            return "";
+          }
+
+        }
+
+    </script>
+  </head>
+  <body onload="openWeekMessage();">
+    <center>
+      <table>
+        <tr align="center">
+          <td>
+            <table border="0">
+              <tr>
+                <td width="200">
+                  <input
+                    type="button"
+                    value="로그아웃"
+                    onclick="location.replace('loginForm.html')"
+                  />
+                </td>
+                <td>게시판</td>
+                <td align="right" width="200">
+                  <a href="">[6개 검색]</a>
+                  <span
+                    style="cursor: pointer"
+                    onclick="location.replace('boardRegForm.html')"
+                    >[새 글쓰기]</span
+                  >
+                  <!-- <a href="boardRegForm.html">[새 글쓰기]</a> -->
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0" style="border-collapse: collapse" cellpadding="5">
+              <tr bgcolor="lightgray">
+                <th>번호</th>
+                <th width="300">제목</th>
+                <th>성명</th>
+                <th>작성일</th>
+                <th>조회수</th>
+              </tr>
+              <tr
+                style="cursor: pointer"
+                onclick="location.replace('boardContentForm1.html')"
+              >
+                <td>6</td>
+                <td>글제목입니다....</td>
+                <td>ㅇㅇㅇ</td>
+                <td>2021.06.06</td>
+                <td>0</td>
+              </tr>
+              <tr
+                bgcolor="#F2F2F2"
+                style="cursor: pointer"
+                onclick="location.replace('boardContentForm2.html')"
+              >
+                <td>5</td>
+                <td>글제목입니다....</td>
+                <td>ㄴㄴ</td>
+                <td>2021.06.01</td>
+                <td>2</td>
+              </tr>
+              <tr
+                style="cursor: pointer"
+                onclick="location.replace('boardContentForm3.html')"
+              >
+                <td>4</td>
+                <td>&nbsp;&nbsp;&nbsp;↳글제목입니다....</td>
+                <td>ㄱㄱㄱ</td>
+                <td>2021.06.03</td>
+                <td>1</td>
+              </tr>
+              <tr
+                bgcolor="#F2F2F2"
+                style="cursor: pointer"
+                onclick="location.replace('boardContentForm4.html')"
+              >
+                <td>3</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳글제목입니다....</td>
+                <td>ㄷㄷ</td>
+                <td>2021.06.05</td>
+                <td>0</td>
+              </tr>
+              <tr
+                style="cursor: pointer"
+                onclick="location.replace('boardContentForm5.html')"
+              >
+                <td>2</td>
+                <td>&nbsp;&nbsp;&nbsp;↳글제목입니다....</td>
+                <td>ㄹㄹ</td>
+                <td>2021.06.02</td>
+                <td>1</td>
+              </tr>
+              <tr
+                bgcolor="#F2F2F2"
+                style="cursor: pointer"
+                onclick="location.replace('boardContentForm6.html')"
+              >
+                <td>1</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳글제목입니다....</td>
+                <td>ㅂㅂ</td>
+                <td>2021.06.04</td>
+                <td>0</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr align="center">
+          <td>
+            <input type="button" value="[처음]" />
+            <input type="button" value="[이전]" />
+            <input type="button" value="1" />
+            <input type="button" value="[2]" />
+            <input type="button" value="[3]" />
+            <input type="button" value="[다음]" />
+            <input type="button" value="[마지막]" />
+          </td>
+        </tr>
+        <tr align="center">
+          <td>
+            <input type="text" name="keyword" />
+            <input type="button" value="검색" />
+            <input type="button" value="모두 검색" />
+          </td>
+        </tr>
+      </table>
+
+
+      <br><br><br>
+      <script>
+          document.write("<table style='border:1px solid black; border-collapse:collapse'>");
+          document.write("<tr><th>오늘날짜<td>" + getTodayYMDW());
+          document.write("<tr><th>일정메세지<td>" + getScheduleMsg());
+          document.write("<tr><th>오늘명언<td>" + get_goldenSaying());
+          document.write("<tr><th>D-Day<td>" + get_DDayMsg());
+          document.write("</table>");
+
+      </script>
+
+
+    </center>
+  </body>
+</html>
