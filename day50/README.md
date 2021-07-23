@@ -66,18 +66,19 @@ var uid = $("[name='loginForm'] [name='uid']").val();
 <br><br>
 ### ✔ val() 메소드
 - class=xxx를 가진 태그의 value 값을 리턴(getter)
-```
+```javascript
 $(".xxx").val()
 ```
 - class=xxx를 가진 태그의 value 값을 ""로 세팅(setter)
-```
+```javascript
 $(".xxx").val("")
 ```
 
 <br><br>
 <hr>
+
 #### common_func에서 유효성 검사 함수
-```
+```javascript
 // 한글 2-20자 사이인지 검사하는 함수
 function isHangulName(hangulName) {
   return isValidPattern(/^[가-힣]{2,20}$/, hangulName);
@@ -95,8 +96,9 @@ function isMem_pwd(mem_pwd) {
 ```
 
 #### memberRegForm.html(회원가입 화면)에서 유효성 검사 함수
+
 - 입력양식 입력값 가져오기
-```
+```javascript
 var mem_name = $(".mem_name").val();
 var mem_id = $(".mem_id").val();
 var mem_pwd = $(".mem_pwd").val();
@@ -105,7 +107,7 @@ var addr = $(".addr").val();         // select 입력양식
 
 
 - mem_name 유효성 체크 : 이름 한글 2-20자
-```
+```javascript
 if ( !isHangulName(mem_name) ) {
     alert("회원명은 한글 2~20자로 입력해주세요.");
     $(".mem_name").val("");  // 입력값 지우기
@@ -115,7 +117,7 @@ if ( !isHangulName(mem_name) ) {
 ```
 
 - mem_id 유효성 체크 : 첫글자 영소문자로, 나머지 영소문자,숫자,_ 인 5-10자
-```
+```javascript
 if ( !isMem_id(mem_id) ) {
     alert("아이디는 첫글자는 영소문자로, 영소문자,숫자,_로 5-10자입니다.");
     $(".mem_id").val("");
@@ -125,7 +127,7 @@ if ( !isMem_id(mem_id) ) {
 ```
 
 - mem_pwd 유효성 체크 : 영소문 또는 숫자 또는 _ 로 5-8자
-```
+```javascript
 if ( !isMem_pwd(mem_pwd) ) {
     alert("암호는 영소문 또는 숫자 또는 _ 로 5-8자입니다.");
     $(".mem_pwd").val("");
@@ -135,7 +137,7 @@ if ( !isMem_pwd(mem_pwd) ) {
 ```
 
 - selector-options (addr) 유효성 체크 : 비어있으면 안됨
-```
+```javascript
 if (isEmpty(addr)) {
     alert("주소를 입력해주세요.");
     $(".addr").focus();
@@ -147,7 +149,7 @@ if (isEmpty(addr)) {
   - ":checked" 선택자 사용
   - .filter() 메소드 사용
   - .length 속성변수 
-```
+```javascript
 // var checkedGenderCnt = $(".gender:checked").length;      // 체크된 라디오버튼 개수
 var checkedGenderCnt = $(".gender").filter(":checked").length;      // 체크된 라디오버튼 개수
 
