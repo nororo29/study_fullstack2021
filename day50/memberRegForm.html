@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원가입</title>
+
+    <script src="jquery-1.11.0.min.js"></script>
+    <script src="common_func.js"></script>
+
+    <script>
+
+      // 유효성 검사 함수 
+      function checkMemRegForm() {
+        // 입력양식 입력값 가져오기
+        var mem_name = $(".mem_name").val();
+        var mem_id = $(".mem_id").val();
+        var mem_pwd = $(".mem_pwd").val();
+        var addr = $(".addr").val();          // select 입력양식
+        var hobby = $(".hobby").val();        // 체크박스
+        var confirm = $(".confirm").val();    // 체크박스 1개
+
+        // mem_name 유효성 체크 : 이름 한글 2-20자
+        if ( !isHangulName(mem_name) ) {
+          alert("회원명은 한글 2~20자로 입력해주세요.");
+          $(".mem_name").val("");
+          $(".mem_name").focus();
+          return;
+        }
+
+        // mem_id 유효성 체크 : 첫글자 영소문자로, 나머지 영소문자,숫자,_ 인 5-10자
+        if ( !isMem_id(mem_id) ) {
+          alert("아이디는 첫글자는 영소문자로, 영소문자,숫자,_로 5-10자입니다.");
+          $(".mem_id").val("");
+          $(".mem_id").focus();
+          return;
+        }
+
+        // mem_pwd 유효성 체크 : 영소문 또는 숫자 또는 _ 로 5-8자
+        if ( !isMem_pwd(mem_pwd) ) {
+          alert("암호는 영소문 또는 숫자 또는 _ 로 5-8자입니다.");
+          $(".mem_pwd").val("");
+          $(".mem_pwd").focus();
+          return;
+        }
+
+        // addr 유효성 체크 : 비어있으면 안됨 또는 "서울"선택하면 안됨!!
+        if (isEmpty(addr) || addr=="서울") {
+          alert("주소를 입력해주세요.");
+          $(".addr").val("");
+          $(".addr").focus();
+          return;
+        }
+
+        // gender 유효성 체크 : 체크된 라디오 개수 1개여야 한다.
+        // var checkedGenderCnt = $(".gender:checked").length;      // 체크된 라디오버튼 개수
+        var checkedGenderCnt = $(".gender").filter(":checked").length;      // 체크된 라디오버튼 개수
+
+        if (checkedGenderCnt == 0) {
+          alert("성별을 선택해주세요.");
+          return;
+        }
+
+        // $("선택자1").filter("선택자2")  //나눠서,, 지칭하는 것이 더 유연함
+        // var checkedGenderCnt = $(".gender").filter(":checked").val();
+        // alert(checkedGenderCnt);
+
+
+
+
+
+      }
+
+
+
+      // test할 때 입력 미리 해주는 함수
+      $(function() {
+
+        // [저장] 버튼 눌렀을 때 유효성 검사 함수 checkMemRegForm 호출
+        $(".save_btn").on("click", function(){
+          checkMemRegForm();
+        });
+
+        // [로그인] 버튼 눌렀을 때 로그인 화면(loginForm.html)으로 가도록
+        $(".to_loginForm_btn").on("click", function(){
+          location.replace("loginForm.html");
+        });
+
+        
+      });
+      
+    </script>
+  </head>
+
+
+  <body>
+    <center>
+      <form name="memberRegForm">
+        <table border="1" cellpadding="5" style="border-collapse: collapse">
+          <caption>
+            회원가입
+          </caption>
+
+          <tr>
+            <th bgcolor="lightgray">회원명</th>
+            <td>
+              <input type="text" name="mem_name" class="mem_name" />
+            </td>
+          </tr>
+
+          <tr>
+            <th bgcolor="lightgray">아이디</th>
+            <td>
+              <input type="text" name="mem_id" class="mem_id" />
+            </td>
+          </tr>
+
+          <tr>
+            <th bgcolor="lightgray">암호</th>
+            <td>
+              <input type="password" name="mem_pwd" class="mem_pwd" />
+            </td>
+          </tr>
+
+          <tr>
+            <th bgcolor="lightgray">거주지</th>
+            <td>
+              <select name="addr" class="addr">
+                <option value="">--선택요망--</option>  // value값 비워서
+                <option value="서울">서울</option>
+                <option value="경기">경기</option>
+                <option value="인천">인천</option>
+                <option value="기타">기타</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <th bgcolor="lightgray">성별</th>
+            <td>
+              <!-- 라디오버튼 : name값이 똑같아야 체크 중복 안됨!! -->
+              <input type="radio" name="gender" class="gender" value="m" />남
+              <input type="radio" name="gender" class="gender" value="f" />여
+            </td>
+          </tr>
+
+          <tr>
+            <th bgcolor="lightgray">취미</th>
+            <td>
+              <!-- 체크박스 값 여러개 -->
+              <input type="checkbox" name="hobby" class="hobby" value="운동" />운동
+              <input type="checkbox" name="hobby" class="hobby" value="여행" />여행
+              <input type="checkbox" name="hobby" class="hobby" value="독서" />독서
+              <input type="checkbox" name="hobby" class="hobby" value="기타" />기타
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <!-- 동의 구하는 체크박스 값 1개인 경우-->
+              <input type="checkbox" name="confirm" class="confirm" value="동의" />동의(가입하신
+              개인정보는 보관이 됩니다.)
+            </td>
+          </tr>
+        </table>
+        <br />
+        <input type="button" class="save_btn" value="저장" />
+        <input type="reset" value="초기화" />
+        <br /><br />
+        <input type="button" class="to_loginForm_btn" value="로그인" />
+      </form>
+    </center>
+  </body>
+</html>
