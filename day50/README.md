@@ -53,8 +53,8 @@ var uid = $(".uid").val();
 var uid = $("[name='uid']").val();
 ```
 - **form의 name 속성 값 선택 후, class이름으로 선택**  
-*<2개 이상의 form에 같은 class이름을 가진 태그가 존재할 때 사용한다.>*
-    - 공백은 자손태그들을 
+    - 2개 이상의 form에 같은 class이름을 가진 태그가 존재할 때 사용한다.
+    - *공백은 자손태그들을 뜻함*
 ```javascript
 var uid = $("[name='loginForm'] .uid").val();  
 ```
