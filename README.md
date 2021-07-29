@@ -62,6 +62,8 @@
 - [day46](day46) (DOM객체, JQuery객체)
 - [day47](day47) (사용자정의객체, JSON)
 - [day48](day48) (2차원 배열, 날짜 활용하기)
+
+#### JQuery
 - [day49](day49) (JQuery)
 - [day50](day50) (load시 함수호출, click이벤트시 함수호출, form객체 선택자, val()메소드)
 - [day51](day51) (선택자의 종류)
