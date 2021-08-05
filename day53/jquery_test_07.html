@@ -1,0 +1,198 @@
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+jquery_09_searching.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	=>[검색 키워드]를 입력하고 [검색] 버튼 클릭하면 [검색 결과]만 화면에 보여준다.
+-->
+<html>
+	<meta charset="UTF-8" />
+	<head>
+		<style>
+			.style1 {
+				background-color: rgb(0, 0, 255);
+				color: rgb(255, 255, 255);
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+		<script>
+			// 화면에 보이는 tr태그의 짝수,홀수 행의 배경색을 지정하는 함수 선언
+			function inputBgColor_to_tr(trObj, oddBgColor, evenBgColor) {
+				var visibleTrObj = trObj.filter(':visible'); // hide로 인해 감춰지지 않은
+
+				// 일방적으로 매개변수 설정 => test?
+				oddBgColor = 'white';
+				evenBgColor = '#F2F2F2';
+
+				visibleTrObj.filter(':odd').css('background-color', evenBgColor);
+				visibleTrObj.filter(':even').css('background-color', oddBgColor);
+			}
+
+			$(document).ready(function () {
+				var keywordObj = $('.keyword1');
+				var searchBtn = $('.search');
+				var allSearchBtn = $('.allSearch');
+
+				var tableObj = $('.sungjuk');
+				var trObj = tableObj.find('tbody tr');
+				var tdObj = tableObj.find('tbody td');
+
+				tableObj.find('thead tr').css('background-color', 'lightblue');
+				// tr태그 짝수,홀수 행 배경색 설정
+				inputBgColor_to_tr(trObj, 'white', 'lightgray');
+
+				// [검색버튼] 누르면 키워드로 검색행만 보이게
+				searchBtn.click(function () {
+					keyword = keywordObj.val();
+
+					// 키워드에 데이터 공백이면, 경고
+					if (keyword.split(' ').join('') == '') {
+						alert('검색데이터가 없습니다.');
+						keywordObj.val(''); // 입력값 비우기
+						keywordObj.focus(); // 입력값 포커스
+						return;
+					}
+
+					// 키워드 데이터 있으면, 앞뒤 공백 제거, 소문자로 받기
+					// trim() 메소드 : 크로스브라우징 안될 수 있음.
+					// $변수 : 태그를 관리하지 않는 JQuery 객체  // $.trim() : $변수의 trim 메소드
+					keyword = $.trim(keyword).toLowerCase();
+
+					trObj.hide(); // tr요소 다 숨기기
+					trObj.each(function () {
+						// keyword와 td내용을 다 소문자로 바꿔서 비교하기.
+						var thisObj = $(this);
+						var thisStr = thisObj.text().toLowerCase();
+
+						if (thisStr.indexOf(keyword) >= 0) {
+							thisObj.show(); // tr text요소에 keyword 있으면 그 행 보이게
+						}
+					});
+
+					// 보이는 tr 요소의 짝수,홀수 행 배경색 설정
+					inputBgColor_to_tr(trObj, 'white', 'lightgray');
+				});
+
+				// [모두검색] 버튼 누르면, 테이블 다 보이게
+				allSearchBtn.click(function () {
+					trObj.show();
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<!-------------------------------------------------->
+		키워드 :
+		<input type="text" name="keyword1" class="keyword1" />
+		<input type="button" value="검색" class="search" />
+		<input type="button" value="모두검색" class="allSearch" /><br /><br />
+		<!-------------------------------------------------->
+		<div class="count"></div>
+		<table cellpadding="5" class="sungjuk" style="border-collapse: collapse">
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>이름</th>
+					<th>평균</th>
+					<th>거주지</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>101</td>
+					<td>John</td>
+					<td>87</td>
+					<td>서울</td>
+				</tr>
+				<tr>
+					<td>102</td>
+					<td>Naman</td>
+					<td>90</td>
+					<td>인천</td>
+				</tr>
+				<tr>
+					<td>103</td>
+					<td>Chirag</td>
+					<td>85</td>
+					<td>서울</td>
+				</tr>
+				<tr>
+					<td>104</td>
+					<td>David</td>
+					<td>92</td>
+				</tr>
+				<tr>
+					<td>105</td>
+					<td>Kelly</td>
+					<td>81</td>
+				</tr>
+				<tr>
+					<td>106</td>
+					<td>Charles</td>
+					<td>77</td>
+				</tr>
+				<tr>
+					<td>107</td>
+					<td>Jerry</td>
+					<td>91</td>
+				</tr>
+				<tr>
+					<td>108</td>
+					<td>Beth</td>
+					<td>87</td>
+				</tr>
+				<tr>
+					<td>109</td>
+					<td>Caroline</td>
+					<td>82</td>
+				</tr>
+				<tr>
+					<td>110</td>
+					<td>Hanen</td>
+					<td>71</td>
+				</tr>
+				<tr>
+					<td>111</td>
+					<td>Douglas</td>
+					<td>57</td>
+				</tr>
+				<tr>
+					<td>112</td>
+					<td>Tim</td>
+					<td>86</td>
+				</tr>
+				<tr>
+					<td>113</td>
+					<td>Michael</td>
+					<td>68</td>
+				</tr>
+				<tr>
+					<td>114</td>
+					<td>Kimbley</td>
+					<td>88</td>
+				</tr>
+				<tr>
+					<td>115</td>
+					<td>Christinax</td>
+					<td>72</td>
+				</tr>
+				<tr>
+					<td>116</td>
+					<td>유원영</td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>117</td>
+					<td>강다니엘</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>118</td>
+					<td>박인선</td>
+					<td>20</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

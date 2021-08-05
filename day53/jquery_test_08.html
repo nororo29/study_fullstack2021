@@ -1,0 +1,68 @@
+<!-------------------------------------
+jquery_06_insertComma.html
+---------------------------------------
+	=>숫자만 입력받아 3자리마다 콤마를 제어 재입력하는 예제 -->
+<html>
+	<meta charset="UTF-8" />
+	<head>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+		<script>
+			$(document).ready(function () {
+				var moneyObj = $('.money');
+				var msgObj = $('.msg');
+
+				moneyObj.focus();
+
+				// class='money' 요소에 keyup 이벤트 설정
+				moneyObj.keyup(function () {
+					// 입력값 가져오기
+					money = $(this).val();
+					var numStr = ''; // 숫자문자들만 저장할 곳
+					var commaNum = ''; // 숫자문자에 콤마 포함할 문자
+
+					// money 문자의 숫자문자만 num 변수에 축적하기
+					for (var i = 0; i < money.length; i++) {
+						var str = money.charAt(i);
+						var reg = /^[0-9]$/;
+
+						if (reg.test(str)) {
+							// 숫자이면 num에 추가
+							numStr += str;
+						}
+					}
+
+					// numStr 공백 아니면, 앞에 나오는 모든 0 삭제
+					if (numStr.length > 0) {
+						numStr = numStr * 1 + '';
+					}
+
+					// numStr 에 콤마 추가하기
+					var cnt = 0;
+					for (var i = numStr.length - 1; i >= 0; i--) {
+						cnt++;
+
+						if (cnt % 3 == 0) {
+							commaNum = ',' + numStr.charAt(i) + commaNum;
+						} else {
+							commaNum = numStr.charAt(i) + commaNum;
+						}
+					}
+
+					// commaNum의 맨 앞에 콤마는 삭제
+					if (commaNum.indexOf(',') == 0) {
+						commaNum = commaNum.substring(1);
+					}
+
+					// input 값에 문자 빼고 숫자만 넣어주기
+					$(this).val(commaNum);
+					// msgObj.text(commaNum);
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<input type="text" class="money" name="money" size="20" maxlength="13" />원<br />
+		<div class="msg"></div>
+	</body>
+</html>

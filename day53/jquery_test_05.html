@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+		<script>
+			$(document).ready(function () {
+				var tableObj = $('.dogList');
+				var trObj = tableObj.find('tr');
+				var no = 1; // 카운팅 변수
+
+				// 일련번호 집어넣기
+				// 강아지의 개수가 늘어나면 일련번호도 늘어난다.
+				trObj.each(function () {
+					var thisObj = $(this);
+					var i = thisObj.index();
+
+					if (i == 0) {
+						thisObj.prepend('<th>번호</th>');
+					} else {
+						// 순서대로
+						// thisObj.prepend('<td>' + i + '</th>');  // 인덱스 사용
+						thisObj.prepend('<td>' + no++ + '</th>'); // 증감연산자 사용
+
+						// 역순으로
+						// thisObj.prepend('<td>' + (trObj.length - i) + '</td>');
+					}
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<table class="dogList" border="1" cellpadding="4" style="border-collapse: collapse">
+			<tr>
+				<th bgcolor="gray">개이름</th>
+			</tr>
+			<tr>
+				<td>진도개</td>
+			</tr>
+			<tr>
+				<td>셰퍼드</td>
+			</tr>
+			<tr>
+				<td>비글</td>
+			</tr>
+			<tr>
+				<td>삽살개</td>
+			</tr>
+			<tr>
+				<td>풍산개</td>
+			</tr>
+		</table>
+	</body>
+</html>

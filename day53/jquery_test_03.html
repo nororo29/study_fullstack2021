@@ -1,0 +1,62 @@
+<!-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+jquery_test_03.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ -->
+<html>
+<meta charset="UTF-8">
+<head>
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	<script>
+		$(document).ready(function(){
+			// name="hobby" 인 요소에 change 이벤트 설정
+			// click 이벤트 -> 다른 키를 눌러 선택했을 때 발생하지 못함...
+			// change 이벤트 -> 체크가 들어가거나 빠지는 행위 
+			//					(마우스 또는 키보드 또는, 자스 코딩으로 들어가거나 빠질 수 있음)
+
+			$("[name='hobby']").change(function(){
+				// this -> change 발생한 checkbox 요소 1개...
+				// change이벤트 발생한 요소 얻기
+				var thisObj = $(this);
+
+				// this의 체크 여부 얻기
+				var isChecked = thisObj.prop('checked');
+
+				// this가 체크 들어갈 때만 => 조금 더 효율적으로
+				if(isChecked == true) {
+					// change가 발생한 요소의 형제들 체크 풀기
+
+					// siblings() : 형제요소 모두
+					thisObj.siblings().prop('checked', false);
+
+					// prevAll(), nextAll() : 형제 중 위/아래 요소들
+					thisObj.prevAll().prop('checked', false);
+					thisObj.nextAll().prop('checked', false);
+				}
+				
+				
+				// $("[name='hobby']").not(thisObj).prop('checked', false);
+				// $(this).prop('checked', true);
+			});
+
+
+		});
+	</script>
+</head>
+<body><center>
+	<input type="checkbox" name="hobby" value="독서">독서<br>
+	<input type="checkbox" name="hobby" value="운동">운동<br>
+	<input type="checkbox" name="hobby" value="여행">여행<br>
+	<input type="checkbox" name="hobby" value="수집">수집
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

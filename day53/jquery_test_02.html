@@ -1,0 +1,105 @@
+<!--
+//-----------------------------------
+jquery_04.html
+//-----------------------------------
+	=>특정 행을 보이거나 사라지게한다.
+-->
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	<script>
+		//-------------------------------------------
+		// $(document).ready(   function(){자스코딩}  );
+		// $.ready(   function(){자스코딩}  );
+		// $(   function(){자스코딩}  );
+		//-------------------------------------------
+		// body 태그 안의 요소들을 읽어들인 후 익명함수 내부의 자스코딩을 실행.
+		$(document).ready(function(){
+			// id="movieList" 인 요소 가져오기
+			var obj = $("#movieList");
+
+			// obj 자손 중 짝수 tr 요소들 감추기
+			// hide() : 제거가 아닌, 존재하되 안 보이게만 하는 메소드
+			obj.find("tr:odd").hide();
+
+
+			// obj 자손 중 홀수 tr 요소에 hover 이벤트 설정
+			obj.find("tr:even").hover(
+				function(){ // mouseover
+					// 홀수 tr 요소의 바로 아래 형제 요소 tr 을 보이게 하기
+					obj.find("tr:odd").hide();
+					$(this).next().show();
+				}, function() { // mouseout
+					// 홀수 tr 요소의 바로 아래 형제 요소 tr 을 안 보이게 하기
+					// $(this).next().hide();
+				}
+			);
+
+
+		});
+	</script>
+</head>
+<body>
+	<table id="movieList" class="movie" border=0 cellspacing=0 width=200 cellpadding=5>
+		<tr bgcolor=#0078C8>
+			<td><b>Action</b></td>
+		</tr>
+		<tr bgcolor=#DBF1FF>
+			<td>
+				&nbsp;&nbsp;&nbsp;Die Hard<br>
+				&nbsp;&nbsp;&nbsp;Matrix<br>
+				&nbsp;&nbsp;&nbsp;Iron Man
+			</td>
+		</tr>
+		<tr bgcolor=#FF8000>
+			<td><b>SF</b></td>
+		</tr>
+		<tr bgcolor=#FFF0E1>
+			<td>
+				&nbsp;&nbsp;&nbsp;Star Track<br>
+				&nbsp;&nbsp;&nbsp;Interstella<br>
+				&nbsp;&nbsp;&nbsp;Star Wars
+			</td>
+		</tr>
+		<tr bgcolor=#408080>
+			<td><b>Thriller</b></td>
+		</tr>
+		<tr bgcolor=#E2F1F1>
+			<td>
+				&nbsp;&nbsp;&nbsp;Six Sense<br>
+				&nbsp;&nbsp;&nbsp;Misty<br>
+				&nbsp;&nbsp;&nbsp;Visitor
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+jquery_02.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+	=><table>태그로 표현 되는 행의 배경 색상을 jQuery를 사용하여 지배한다.
+	=>jQuery의 addClass(~), removeClass(~), hover(~) 메소드 사용법을 숙지하자.
+-->
+<html>
+<meta charset="UTF-8">
+	<style>
+		 /*-----------------------------------------------*/
+		 /* class="style1" 이 삽입된 태그에 배경색과 글자색상을 지정*/
+		 /*-----------------------------------------------*/
+		.style1 { background-color: #c0f500; color: #000000;  }
+	</style>
+<head>
+	<!-- Jquery 라이브러리 수입. -->
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	<script>
+		//-------------------------------------------
+		//$(document).ready(   function(){자스코딩}  );
+		//-------------------------------------------
+		// body 태그 안의 요소들을 읽어들인 후 익명함수 내부의 자스코딩을 실행.
+		$(document).ready(function() {   
+
+			//return;  // 익명함수 실행 중단
+
+			// id="staff"가 있는 태그의 후손 중, thead 안의 후손 중, tr 태그의 배경색을 gray로 설정하기
+
+			var tableObj = $("#staff");
+			// alert(tableObj.length);  // 1 => 0나오면 없는 것
+
+			// tr 인덱스 홀수번호 : attr() 사용하여 bgcolor 속성 설정하기
+			tableObj.find("thead tr").attr("bgcolor", "gray");
+			tableObj.find("tbody tr:odd").attr("bgcolor", "lightgray");
+
+			// tr 인덱스 짝수번호 : attr() 사용하여 bgcolor 속성 설정하기
+			tableObj.find("tbody tr:even").attr("bgcolor", "#F1F1F1");
+
+			/*
+			// mouseover() : tr 요소 마우스 들어가면, 배경색 변화
+			tableObj.find("tbody tr").mouseover(function(i){
+				$(this).addClass('style1');
+			});
+			
+			// mouseout() : tr 요소 마우스 빠지면, 배경색 원래대로
+			tableObj.find("tbody tr").mouseout(function(){
+				$(this).removeClass('style1');
+			})
+			*/
+
+			// hover() 메소드 : mouseover와 mouseout 두개의 기능을 동시에 갖고 있다.
+			var origin_color = "";
+
+			tableObj.find("tbody tr").hover( 
+				function(){
+					origin_color = $(this).attr('bgcolor');
+					$(this).attr('bgcolor', 'pink');
+					// $(this).addClass('style1');
+
+				}, function(){
+					// $(".msg").text("mouse out");
+					$(this).attr('bgcolor', origin_color);
+					// $(this).removeClass('style1');
+			});
+
+
+
+			tableObj.find("thead th").hover(
+				function(){ // 마우스를 댄 열의 배경 색 바꾸기
+					// index() 메소드 : 형제들 중에 몇번째 인덱스인지
+					var no = $(this).index() + 1;
+					$(".msg").text(no);
+
+					// tbody 안의 각!! tr 안에서 위에서 구한 순서번호에 해당하는 tr 배경색 바꾸기
+					// :nth-child() : 각 요소의 부모의 자식, 형제!! 에서  몇번째
+					tableObj.find("tbody td:nth-child(" + no + ")").addClass('style1');
+
+				}, function(){ // 마우스를 뺀 열의 배경 색 원래대로 바꾸기
+					// 특정 열 골라낼 필요 없다. 모든 td의 색 원래대로
+					tableObj.find("tbody td").removeClass('style1');
+
+				}
+			);
+
+
+
+		});
+	</script>
+</head>
+
+<body><center>
+	<table id="staff" border=1 cellpadding=5 cellspacing=0>
+		<thead>
+			<tr><th>이름<th>혈액형<th>지역
+		</thead>
+		<tbody>
+			<tr><td>강민수<td>AB형<td>서울특별시 송파구
+			<tr><td>구지연<td>B형<td>미국 캘리포니아
+			<tr><td>김미화<td>AB형<td>미국 메사추세츠
+			<tr><td>김선화<td>O형<td>서울 강서구
+			<tr><td>남기주<td>A형<td>서울 노량진구
+			<tr><td>윤하린<td>B형<td>서울 용산구
+		</tbody>
+	</table>
+
+	<div class="msg"></div>
+</body>
+</html>

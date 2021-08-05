@@ -1,0 +1,35 @@
+<html>
+	<meta charset="UTF-8" />
+	<head>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+		<script>
+			$(document).ready(function () {
+				var hobbyAllObj = $("[name='hobby_all']");
+				var hobbyObj = $("[name='hobby']");
+
+				// name="hobby_all" 체크박스 누루면 전체 선택되도록
+				hobbyAllObj.change(function () {
+					// hobbyAllObj의 체크 상태에 따라 hobbyObj 체크를 바꿔준다.
+					hobbyObj.prop('checked', $(this).prop('checked'));
+				});
+
+				// name='hobby' 체크박스 바뀔 때 이벤트 처리
+				hobbyObj.change(function () {
+					// 체크된 hobbyObj의 개수가 총 hobbyObj의 개수와 같으면 다 체크된 것.
+					var isAllChecked = hobbyObj.filter(':checked').length == hobbyObj.length;
+
+					hobbyAllObj.prop('checked', isAllChecked);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<hr />
+		<input type="checkbox" name="hobby_all" />전체
+		<hr />
+		<input type="checkbox" name="hobby" value="독서" />독서<br />
+		<input type="checkbox" name="hobby" value="운동" />운동<br />
+		<input type="checkbox" name="hobby" value="여행" />여행<br />
+		<input type="checkbox" name="hobby" value="수집" />수집
+	</body>
+</html>

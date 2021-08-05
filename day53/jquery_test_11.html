@@ -1,0 +1,134 @@
+<!-- 
+~~~~~~~~~~~~~~~~~~~~~~
+jquery_test_11.html
+~~~~~~~~~~~~~~~~~~~~~~
+	헤더를 클릭하면 행의 순서를 바꾸어 소트가 되는 효과를 본다.
+ -->
+<html>
+	<meta charset="UTF-8" />
+	<head>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+		<script>
+			$(document).ready(function () {
+				var tableObj = $('.stuList');
+				var thObj = tableObj.find('thead tr:eq(0) th');
+
+				thObj.click(function () {
+					var thisThObj = $(this);
+					var idx = thisThObj.index(); // 클릭한 th의 인덱스번호
+					var asc_or_desc = ''; // 오름차순 ▲, 내림차순 ▼ 변수
+
+					// 클릭하지 않은 th 태그 안의 오름차,내림차 문자열 제거하기
+					thisThObj.siblings().each(function () {
+						var txt = $(this).text();
+
+						// replace()를 통해 문자열 제거
+						txt = txt.replace('▲', '');
+						txt = txt.replace('▼', '');
+
+						$(this).text(txt);
+					});
+
+					// 클릭한 th 태그 안에 오름차,내림차 문자열 넣기
+					var txt = thisThObj.text();
+
+					if (txt.indexOf('▲') >= 0) {
+						txt = txt.replace('▲', '▼');
+						asc_or_desc = 'desc';
+					} else if (txt.indexOf('▼') >= 0) {
+						txt = txt.replace('▼', '▲');
+						asc_or_desc = 'asc';
+					} else {
+						txt += '▲';
+						asc_or_desc = 'asc';
+					}
+
+					thisThObj.text(txt);
+
+					// 정렬대상이 되는 tr태그를 배열에 넣은 후 정렬한다.
+					var trObj = tableObj.find('tbody tr');
+					var trObjArr = [];
+					trObj.each(function () {
+						trObjArr.push($(this));
+					});
+
+					for (var i = 0; i < trObjArr.length - 1; i++) {
+						for (var j = 0; j < trObjArr.length - i - 1; j++) {
+							var th_txt1 = trObjArr[j].find('td').eq(idx).text();
+							var th_txt2 = trObjArr[j + 1].find('td').eq(idx).text();
+
+							// 받은 문자열 공백 제거하고, 소문자로 바꿔주기
+							th_txt1 = $.trim(th_txt1).toLowerCase();
+							th_txt2 = $.trim(th_txt2).toLowerCase();
+
+							// 인덱스 2번, [평균] 선택하면 숫자로 바꿔서 비교해야 한다.
+							if (idx == 2) {
+								th_txt1 *= 1;
+								th_txt2 *= 1;
+							}
+
+							// 오름차순, 내림차순에 따라 바꿔주기
+							if (asc_or_desc == 'asc') {
+								if (th_txt1 > th_txt2) {
+									var temp = trObjArr[j];
+									trObjArr[j] = trObjArr[j + 1];
+									trObjArr[j + 1] = temp;
+								}
+							} else if (asc_or_desc == 'desc') {
+								if (th_txt1 < th_txt2) {
+									var temp = trObjArr[j];
+									trObjArr[j] = trObjArr[j + 1];
+									trObjArr[j + 1] = temp;
+								}
+							}
+						}
+					}
+
+					// 정렬한 값 넣기...
+					tableObj.find('tbody').html(trObjArr);
+
+					// console.log(trObjArr);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<table border="1" cellpadding="5" cellspacing="0" class="stuList">
+			<thead>
+				<tr bgcolor="lightblue">
+					<th style="cursor: pointer">학번</th>
+					<th style="cursor: pointer">이름</th>
+					<th style="cursor: pointer">평균</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>101</td>
+					<td>John</td>
+					<td>87</td>
+				</tr>
+				<tr>
+					<td>102</td>
+					<td>Naman</td>
+					<td>50</td>
+				</tr>
+				<tr>
+					<td>103</td>
+					<td>Chirag</td>
+					<td>85</td>
+				</tr>
+				<tr>
+					<td>104</td>
+					<td>Tom</td>
+					<td>55</td>
+				</tr>
+				<tr>
+					<td>105</td>
+					<td>Niki</td>
+					<td>100</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
