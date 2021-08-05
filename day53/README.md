@@ -2,7 +2,7 @@
 2021.08.02
 
 ## JQuery 예제 모음
-### [jquery_test_1](jquery_test_1.html)
+### [jquery_test_1](jquery_test_01.html)
 - 행과 열을 선택했을 때 선택한 행이나 열의 배경색이 변경된다.
 
 ![1-1](https://user-images.githubusercontent.com/50298349/128278312-652fa714-4232-4765-9b94-0ca2bab9608a.PNG)
@@ -10,7 +10,7 @@
 
 <br><hr><br>
 
-### [jquery_test_2](jquery_test_2.html)
+### [jquery_test_2](jquery_test_02.html)
 - 장르에 마우스를 댔을 때, 해당 장르의 영화들이 보인다.
 
 ![2-1](https://user-images.githubusercontent.com/50298349/128278318-5f6d07b0-a8f1-4800-9381-5222cb99636e.PNG)
@@ -18,14 +18,14 @@
 
 <br><hr><br>
 
-### [jquery_test_3](jquery_test_3.html)
+### [jquery_test_3](jquery_test_03.html)
 - 체크박스를 라디오박스처럼, 1개만 선택할 수 있다.
 
 ![3](https://user-images.githubusercontent.com/50298349/128278321-ec9d363f-f516-4b92-8f58-eb4c2e91d6b2.PNG)
 
 <br><hr><br>
 
-### [jquery_test_4](jquery_test_4.html)
+### [jquery_test_4](jquery_test_04.html)
 - 전체를 눌렀을 때 전체 체크박스가 선택된다.
 - 목록 체크박스 중 하나의 체크라도 풀려있으면 전체 체크박스의 체크가 풀린다.
 - 목록 체크박스가 다 체크되면, 전체 체크박스도 체크된다.
@@ -35,7 +35,7 @@
 
 <br><hr><br>
 
-### [jquery_test_5](jquery_test_5.html)
+### [jquery_test_5](jquery_test_05.html)
 - 개이름에 맞게 앞에 번호 행을 추가한다.
 - 개 종류가 늘어나면, 일련번호도 늘어난다.
 
@@ -43,7 +43,7 @@
 
 <br><hr><br>
 
-### [jquery_test_6](jquery_test_6.html)
+### [jquery_test_6](jquery_test_06.html)
 - 체크박스를 선택한 후 반전 버튼을 누르면, 선택하지 않은 체크박스가 선택되고 선택한 체크박스는 풀린다.
 
 ![6-1](https://user-images.githubusercontent.com/50298349/128278286-2b85dc57-5fc1-49c0-b556-d4efb3416935.PNG)
@@ -51,7 +51,7 @@
 
 <br><hr><br>
 
-### [jquery_test_7](jquery_test_7.html)
+### [jquery_test_7](jquery_test_07.html)
 - 키워드를 입력한 후, 검색버튼을 누르면 키워드를 가지고 있는 행만 출력된다.
 - 모두 검색 버튼을 누르면, 원래의 상태(모든 행 출력)로 돌아간다.
 
@@ -60,7 +60,7 @@
 
 <br><hr><br>
 
-### [jquery_test_8](jquery_test_8.html)
+### [jquery_test_8](jquery_test_08.html)
 - 기본 text입력양식에는 숫자만 입력가능하게 한다.
 - 3개의 숫자마다 콤마(,)를 출력해준다.
 - 0은 한 글자일 때만 입력되고, '0011' 와 같이 입력되면 '11'로 바꿔준다.
@@ -70,7 +70,7 @@
 
 <br><hr><br>
 
-### [jquery_test_9](jquery_test_9.html)
+### [jquery_test_9](jquery_test_09.html)
 - 'OAK'와 'Platform' 글자에 마우스 오버가 되면, 관련 설명이 출력된다.
 - 마우스를 때면 관련 설명이 천천히 사라진다.
 
