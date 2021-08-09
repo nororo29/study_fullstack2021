@@ -1,0 +1,123 @@
+<!-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+jquery_test_13.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ -->
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+		<script language="JavaScript">
+			$(document).ready(function () {
+				var skills = $('#skills select');
+				// skills 자식들 중 name이 'skill'로 시작하는 요소들 가져오기
+				// var skills = $('#skills').children('[name^=skill]');
+
+				skills.change(function () {
+					// skill1, skill2, skill3 중 ... 요소 가져오기
+					var selectObj = $(this);
+					// 현재 select 요소의 선택 값
+					var selectVal = selectObj.val();
+					// 현재 select 요소의 형제 중 인덱스 번호 가져오기
+					var idx = selectObj.index();
+					// select 선택값들 저장할 Array 객체
+					var values = [];
+
+					// values 가져오기
+					skills.each(function () {
+						var value = $(this).val();
+
+						if (value == null || value == '') {
+							values.push('');
+						} else {
+							values.push(value);
+						}
+					});
+
+					// 0-1, 0-2, 1-2 ... 비교
+					for (var i = 0; i < values.length - 1; i++) {
+						for (var j = i + 1; j < values.length; j++) {
+							// 이전 값(i) 선택 값 없는데, 다음 값(j)가 선택 값 있으면
+							if (values[i] == '' && values[j] != '') {
+								// j 비우기
+								values[j] = '';
+								skills.eq(j).val('');
+							} // i 선택 값 있는데, j 선택 값과 같으면
+							else if (values[i] != '' && values[i] == values[j]) {
+								// j 비우기
+								values[j] = '';
+								skills.eq(j).val('');
+							}
+						}
+					}
+
+					// 이전 select 의 option 태그들 복사해 바로 다음 select 요소에 넣어주고
+					// 이전 select 의 value 값을 가진 option태그들 지워준다.
+					// 0번 option들 -> 1번 -> 1번에서 0의 value 삭제
+					// 1번 option들 -> 2번 -> 2번에서 1의 value 삭제
+					for (var i = 0; i < values.length - 1; i++) {
+						var firSelect = skills.eq(i);
+						var secSelect = skills.eq(i + 1);
+
+						var firSelectVal = firSelect.val();
+						var secSelectVal = secSelect.val();
+
+						secSelect.html(firSelect.html());
+
+						if (firSelectVal != '') {
+							secSelect
+								.children()
+								.filter('[value=' + firSelectVal + ']')
+								.remove();
+
+							secSelect.val(secSelectVal);
+						} else {
+						}
+					}
+
+					// $('body').append('<hr>' + values.join(', '));
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<!---------------------------------------------------------------->
+		<span id="skills">
+			[소유스킬] :
+			<select name="skill1">
+				<option value=""></option>
+				<option value="JSP">JSP</option>
+				<option value="ASP">ASP</option>
+				<option value="PHP">PHP</option>
+				<option value="Oracle">Oracle</option>
+				<option value="Java">Java</option>
+			</select>
+
+			<select name="skill2">
+				<option value=""></option>
+				<option value="JSP">JSP</option>
+				<option value="ASP">ASP</option>
+				<option value="PHP">PHP</option>
+				<option value="Oracle">Oracle</option>
+				<option value="Java">Java</option>
+			</select>
+
+			<select name="skill3">
+				<option value=""></option>
+				<option value="JSP">JSP</option>
+				<option value="ASP">ASP</option>
+				<option value="PHP">PHP</option>
+				<option value="Oracle">Oracle</option>
+				<option value="Java">Java</option>
+			</select>
+
+			<select name="skill4">
+				<option value=""></option>
+				<option value="JSP">JSP</option>
+				<option value="ASP">ASP</option>
+				<option value="PHP">PHP</option>
+				<option value="Oracle">Oracle</option>
+				<option value="Java">Java</option>
+			</select>
+		</span>
+	</body>
+</html>

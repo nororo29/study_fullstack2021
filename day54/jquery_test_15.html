@@ -1,0 +1,326 @@
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+jquery_test_15.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	=>학점 관련 [체크박스]를 체크하고 [검색] 버튼 클릭하면 체크한 학점에 맞는 [검색 결과]만 화면에 보여준다.
+-->
+<html>
+	<meta charset="UTF-8" />
+	<head>
+		<style>
+			.style1 {
+				background-color: #00f;
+				color: #fff;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+		<script>
+			// // 점수 조건에 맞는 tr만 보여주는 함수
+			// function showTrByHJ(trsObj, minNum, maxNum) {
+			// 	trsObj.each(function () {
+			// 		var thisObj = $(this);
+			// 		var thisHakjum = thisObj.find('td:eq(2)').text();
+
+			// 		if (thisHakjum >= minNum && thisHakjum <= maxNum) {
+			// 			thisObj.show();
+			// 		}
+			// 	});
+			// }
+
+			// 보이는 tr들 배경 설정 해주는 함수
+			function changeTrBgColor(trsObj) {
+				trsObj.filter(':visible:odd').css('background-color', 'lightgray');
+				trsObj.filter(':visible:even').css('background-color', 'white');
+			}
+
+			// 총 개수 출력하는 함수
+			function showCountNum() {
+				var trsCnt = $('.sungjuk tr').filter(':visible').length - 1;
+				$('.count').text('총 ' + trsCnt + '개');
+
+				return trsCnt;
+			}
+
+			// 역순 번호 출력 함수
+			function showRevNum(trsObj, countNum) {
+				trsObj.filter(':visible').each(function () {
+					$(this).find('td:first').text(countNum);
+					countNum--;
+				});
+			}
+
+			$(document).ready(function () {
+				// 체크박스들
+				var hakjumsChb = $('[name="hakjum"]');
+
+				// [검색], [모두검색]
+				var searchBtn = $('.search');
+				var allSearchBtn = $('.allSearch');
+
+				// 개수 출력 div
+				var countObj = $('.count');
+
+				// 테이블 요소들
+				var tableObj = $('.sungjuk');
+				var trsObj = tableObj.find('tbody tr');
+
+				// 테이블 tr 요소들 배경 색 변경
+				tableObj.find('thead tr').css('background-color', 'lightblue');
+				trsObj.filter(':odd').css('background-color', 'lightgray');
+
+				// 역순번호 th 태그, td 태그들 만들기
+				tableObj.find('thead tr').prepend('<th>번호</th>');
+				trsObj.each(function () {
+					$(this).prepend('<td></td>');
+				});
+
+				showCountNum();
+				showRevNum(trsObj, 18);
+
+				// [모두검색] 눌렀을 때,
+				allSearchBtn.click(function () {
+					hakjumsChb.prop('checked', false);
+					trsObj.show();
+
+					// 보이는 tr들 배경 설정 다시
+					changeTrBgColor(trsObj);
+
+					// 총 개수 출력
+					var countNum = showCountNum();
+
+					// 역순 번호 행 출력
+					showRevNum(trsObj, countNum);
+				});
+
+				// [검색] 눌렀을 때,
+				searchBtn.bind('click', function () {
+					// 체크된 학점 개수 얻기
+					// length(), size() 메소드 없음 => length로 사용하라
+					var checkedHakJumCnt = hakjumsChb.filter(':checked').length;
+
+					// 체크된 학점 없으면 모두 보이고 함수 중단
+					if (checkedHakJumCnt == 0) {
+						trsObj.show();
+						return;
+					}
+
+					// 모든 tr들 다 숨기기
+					trsObj.hide();
+
+					// 체크된 학점을 배열에 저장하기
+					var hakjums = [];
+
+					hakjumsChb.each(function () {
+						var thisHJ = $(this);
+
+						if (thisHJ.is(':checked')) {
+							hakjums.push(thisHJ.val());
+						}
+					});
+
+					// tr 태그들에 차례대로 접근해서, 체크한 학점에 맞는 평균을 갖고 있으면 보이게 한다.
+					trsObj.each(function () {
+						var thisTrObj = $(this);
+						// 한 tr 태그의 평균 값 가져오기 -> 공백제거 -> 숫자로
+						var avg = thisTrObj.find('td:last').text();
+						avg = $.trim(avg);
+						avg = parseInt(avg, 10);
+
+						/* 방법 1 -------------------------------------------------------------------------
+						var flag = false;
+
+						// avg가 hakjums 배열에 저장된 학점에 맞는 점수이면 flag=true, 반복문 중단
+						for (var i = 0; i < hakjums.length; i++) {
+							// hakjums[i] 가 'A'이고, avg는 90~100 사이 이면 true
+							if (hakjums[i] == 'A' && avg >= 90 && avg <= 100) { flag = true; break; }
+							// hakjums[i] 가 'B'이고, avg는 80~90 사이 이면 true
+							if (hakjums[i] == 'B' && avg >= 80 && avg < 90) { flag = true; break; }
+							// hakjums[i] 가 'C'이고, avg는 70~80 사이 이면 true
+							if (hakjums[i] == 'C' && avg >= 70 && avg < 80) { flag = true; break; }
+							// hakjums[i] 가 'D'이고, avg는 60~70 사이 이면 true
+							if (hakjums[i] == 'D' && avg >= 60 && avg < 70) { flag = true; break; }
+							// hakjums[i] 가 'F'이고, avg는 0~60 사이 이면 true
+							if (hakjums[i] == 'F' && avg >= 0 && avg < 60) { flag = true; break; }
+						}
+
+						// flag = true 이면, tr 보이게
+						if (flag) { thisTrObj.show(); }
+						*/ //-------------------------------------------------------------------------
+
+						// 방법 2 -------------------------------------------------------------------------
+						// avg에 맞게 학점 구하기
+						var hakjum = 'A';
+						if (avg >= 80 && avg < 90) {
+							hakjum = 'B';
+						} else if (avg >= 70 && avg < 80) {
+							hakjum = 'C';
+						} else if (avg >= 60 && avg < 70) {
+							hakjum = 'D';
+						} else if (avg >= 0 && avg < 60) {
+							hakjum = 'F';
+						}
+
+						var flag = false;
+
+						for (var j = 0; j < hakjums.length; j++) {
+							// 체크된 학점들에 현재 평균 학점이 있다면 true
+							if (hakjums[j] == hakjum) {
+								flag = true;
+								break;
+							}
+						}
+
+						if (flag) {
+							thisTrObj.show();
+						}
+						// -------------------------------------------------------------------------
+					});
+
+					// // 체크된 학점에 맞는 tr만 보이게
+					// if (hakjumsChb.eq(0).prop('checked')) {
+					// 	showTrByHJ(trsObj, 90, 100); // 90점 이상 100점 이하
+					// }
+
+					// if (hakjumsChb.eq(1).prop('checked')) {
+					// 	showTrByHJ(trsObj, 80, 89); // 80점 이상 89점 이하
+					// }
+
+					// if (hakjumsChb.eq(2).prop('checked')) {
+					// 	showTrByHJ(trsObj, 70, 79); // 70점 이상 89점 이하
+					// }
+
+					// if (hakjumsChb.eq(3).prop('checked')) {
+					// 	showTrByHJ(trsObj, 60, 69); // 60점 이상 69점 이하
+					// }
+
+					// if (hakjumsChb.eq(4).prop('checked')) {
+					// 	showTrByHJ(trsObj, 0, 59); // 0점 이상 59점 이하
+					// }
+
+					// 총 개수 출력
+					var countNum = showCountNum();
+					// console.log(countNum);
+
+					// 역순 번호 행 출력
+					showRevNum(trsObj, countNum);
+
+					// 보이는 tr들 배경 설정 다시
+					changeTrBgColor(trsObj);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<!-------------------------------------------------->
+		<input type="checkbox" name="hakjum" value="A" />A학점 <input type="checkbox" name="hakjum" value="B" />B학점 <input type="checkbox" name="hakjum" value="C" />C학점
+		<input type="checkbox" name="hakjum" value="D" />D학점 <input type="checkbox" name="hakjum" value="F" />F학점<br />
+
+		<input type="button" value="검색" class="search" />
+		<input type="button" value="모두검색" class="allSearch" /><br /><br />
+		<!-------------------------------------------------->
+		<div class="count"></div>
+		<!-------------------------------------------------->
+		<table border="1" cellpadding="5" class="sungjuk" style="border-collapse: collapse">
+			<thead>
+				<tr>
+					<th>학생번호</th>
+					<th>이름</th>
+					<th>평균</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>101</td>
+					<td>John</td>
+					<td>87</td>
+				</tr>
+				<tr>
+					<td>102</td>
+					<td>Naman</td>
+					<td>90</td>
+				</tr>
+				<tr>
+					<td>103</td>
+					<td>Chirag</td>
+					<td>85</td>
+				</tr>
+				<tr>
+					<td>104</td>
+					<td>David</td>
+					<td>92</td>
+				</tr>
+				<tr>
+					<td>105</td>
+					<td>Kelly</td>
+					<td>81</td>
+				</tr>
+				<tr>
+					<td>106</td>
+					<td>Charles</td>
+					<td>77</td>
+				</tr>
+				<tr>
+					<td>107</td>
+					<td>Jerry</td>
+					<td>91</td>
+				</tr>
+				<tr>
+					<td>108</td>
+					<td>Beth</td>
+					<td>87</td>
+				</tr>
+				<tr>
+					<td>109</td>
+					<td>Caroline</td>
+					<td>82</td>
+				</tr>
+				<tr>
+					<td>110</td>
+					<td>Hanen</td>
+					<td>71</td>
+				</tr>
+				<tr>
+					<td>111</td>
+					<td>Douglas</td>
+					<td>57</td>
+				</tr>
+				<tr>
+					<td>112</td>
+					<td>Tim</td>
+					<td>86</td>
+				</tr>
+				<tr>
+					<td>113</td>
+					<td>Michael</td>
+					<td>68</td>
+				</tr>
+				<tr>
+					<td>114</td>
+					<td>Kimbley</td>
+					<td>88</td>
+				</tr>
+				<tr>
+					<td>115</td>
+					<td>Christinax</td>
+					<td>72</td>
+				</tr>
+				<tr>
+					<td>116</td>
+					<td>유원영</td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>117</td>
+					<td>강다니엘</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>118</td>
+					<td>박인선</td>
+					<td>20</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

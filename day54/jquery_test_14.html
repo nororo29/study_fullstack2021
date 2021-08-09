@@ -1,0 +1,87 @@
+<!-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+jquery_test_14.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	=>이미지에 마우스를 대면 지정한 곳에서 서서히 나타난다.
+	=>hover(~). fadeTo(~) 메소드를 숙지한다.
+-->
+<html>
+	<head>
+		<style>
+			.small img {
+				border: none;
+				width: 130px;
+			}
+			.large {
+				width: 400px;
+			}
+			.hover {
+				color: #fff;
+				background-color: #c5c5c5;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+		<script>
+			$(document).ready(function () {
+				// mouse 대면, large에 뜨고
+				var smallObj = $('.small'); // <a> 태그 (<img>태그 감싼)
+				var largeObj = $('.large'); // <img> 태그
+
+				smallObj.hover(
+					function () {
+						var thisObj = $(this); // 현재 마우스 댄 요소
+						var imgSrc = thisObj.attr('href'); // 이미지 src값
+
+						// 마우스 댄 요소의 부모 요소 class='hover'삽입
+						thisObj.parent().addClass('hover');
+
+						// large 요소 이미지 사라지고
+						// 마우슨 댄 요소 이미지 띄어주기
+						largeObj.fadeOut('slow', function () {
+							// 사라진 후에 실행될 함수..
+							largeObj.attr('src', imgSrc);
+							largeObj.fadeIn();
+						});
+					},
+					function () {
+						var thisObj = $(this);
+
+						thisObj.parent().removeClass('hover');
+					}
+				);
+				// click하면 사진만 보이게
+			});
+		</script>
+	</head>
+	<body>
+		<table border="1" cellspacing="0">
+			<tr>
+				<td width="130" align="center">
+					<a href="img/berries.jpg" class="small"><img src="img/berries.jpg" /></a>
+					<p>P1001</p>
+				</td>
+				<td rowspan="4" width="350" align="center">
+					<img src="img/berries.jpg" class="large" />
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<a href="img/dandelion.jpg" class="small"> <img src="img/dandelion.jpg" /></a>
+					<p>P1002</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<a href="img/flowers.jpg" class="small"><img src="img/flowers.jpg" /></a>
+					<p>P1003</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<a href="img/port.jpg" class="small"><img src="img/port.jpg" /></a>
+					<p>P1004</p>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
