@@ -1,7 +1,8 @@
 ## Day54
 2021.08.06
 
-# jquery_test_13  [코드](jquery_test_13.html)
+# jquery_test_13  
+[코드](jquery_test_13.html)
 - 앞에 select 에서 선택한 값은 뒤 select 옵션들에서 사라진다.
 - 앞에 select 선택값이 없거나 뒤 선택값과 같은 값을 선택하면, 뒤 선택값들 지워진다.
 
@@ -12,7 +13,8 @@
 
 <br><br>
 
-# jquery_test_14  [코드](jquery_test_14.html)
+# jquery_test_14  
+[코드](jquery_test_14.html)
 - 마우스 대면, 그림이 크게보인다.
 - fadeOut(), fadeIn() 메소드 사용
 
@@ -22,7 +24,8 @@
 
 <br><br>
 
-# jquery_test_15  [코드1](jquery_test_15.html) [코드2](jquery_test_15(2).html)
+# jquery_test_15  
+[코드1](jquery_test_15.html) [코드2](jquery_test_15(2).html)
 - 검색 버튼 눌렀을 때 체크된 학점이 없으면 다 보인다.
 - 체크된 학점이 있으면 그 학점에 해당하는 평균 가진 학생들만 보인다.
 - 테이블에 역순 번호를 출력한다. 
