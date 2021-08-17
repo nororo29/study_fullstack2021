@@ -73,8 +73,6 @@
 
 #### JSP & Spring
 - [day55](day55) (웹브라우저, 웹서버, 웹브라우저와 웹서버의 통신과정)
-- [day56](day56) (HttpServletRequest 객체)
-- [day57](day57) (HttpServletResponse 객체)
-- [day58](day58) (HttpSession 객체)
+- [day56](day56) (HttpServletRequest 객체, HttpServletResponse 객체, HttpSession 객체)
 
 
